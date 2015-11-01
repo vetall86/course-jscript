@@ -120,15 +120,12 @@ a {
 				color: white;
 				margin: 0;
 			}
-
 		#main > .list_box > .box {
-			width: 100%;
-			margin: 0 auto 10px;
+			min-height: 200px 10px;
 			}
 			#main > .list_box .box > img {
 				display: block;
-				width: 100%;
-				height: auto;
+				margin: 0 auto;
 			}
 		#main > .list_box p {
 			margin: 0 0 10px;
