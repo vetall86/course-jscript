@@ -4,12 +4,10 @@
 		if (elem.addEventListener) elem.addEventListener(event_name, handler, false);
 		else if (elem.attachEvent) elem.attachEvent('on' + event_name, handler);
 		else elem['on' + event_name] = handler;
-	return;};
-		
-	function Steward (data) {
-
+		return;
 	};
-
+		
+	function Steward () {};
 	Steward.prototype = {
 		constructor: Steward,
 		onScroll: function(e) {
@@ -17,8 +15,10 @@
 			if ( sTop < 50 ) header.style.top = '0';
 			else header.style.top = '-'+window.getComputedStyle(header).height;
 			if ( sTop > parseInt( window.getComputedStyle(document.body).height ) - window.innerHeight-50 )
-				footer.style.margin = '-'+window.getComputedStyle(footer).height+' 0';
-			else footer.style.margin = '0';
+				footer.style.margin = '';
+			else {
+				footer.style.margin = '0';
+			};
 		},
 		blockAlign: function(e, boxes) {
 			var max, key;
@@ -35,24 +35,19 @@
 
 			addEvent(window, "resize", function(e){
 				var e = e || window.e;
-
 				list.length > 0 && steward.blockAlign(e, list);
 			});
-			addEvent(window, "scroll", function(e){
+			addEvent(window, "scroll", function(e) {
 				var e = e || window.e;
 				steward.onScroll(e);
 			});
 
 			list.length > 0 && steward.blockAlign(1, list);
+			steward.onScroll();
 		}
 	};
-	window.worker = new Steward;
-
+	window.onload = function(e) {
+		new Steward().init();
+	};
 
 }();
-
-window.onload = function(e) {
-	worker.init();
-
-	console.log(e);
-};
