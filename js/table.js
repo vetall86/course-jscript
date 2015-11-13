@@ -1,4 +1,4 @@
-
+!function() {
 
 var lessons = 21,
 	startTableData = '<table><thead><th>student / lessons</th>',
@@ -442,3 +442,4 @@ window.onload = function() {
 	var content = document.getElementsByClassName('content')[0]
 	content.innerHTML = fixTable;
 }
+}();
