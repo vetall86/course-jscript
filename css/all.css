@@ -319,13 +319,6 @@ a {
 	display: none;
 	float: left;
 }
-.content > table th div{
-	height: 2.2em;
-	padding: 0;	
-}
-.content > table tr:first-child div{
-	height: 1.4em;
-}
 
 #main table {
 	position: relative;
@@ -334,7 +327,7 @@ a {
 	margin: 10px auto;
 }
 #main table th {
-	padding: 0.5em;
+	padding: 0.87em 0.5em;
 	border: 1px solid black;
 }
 #main tbody tr:hover td {
@@ -346,9 +339,11 @@ a {
 	height: 3em;
 	border-radius: 9px;
 	background: rgba(250,250,250,0.4);
+	position: relative;
+	z-index: 10;
 }
 #main table td > div.miss {
-	opacity: 0.8;
+	/*opacity: 0.8;*/
 	background: #D8729F;
 }
 #main table td > div.attendance {
@@ -357,7 +352,23 @@ a {
 #main table td > div:hover {
 	box-shadow: inset 5px -1px 40px 1px rgba(50,80,0,1);
 	border-radius: 50%;
+	z-index: 50;
 }
+#main table td > div:hover:after {
+	content: attr(data-reason);
+	display: block;
+	left: 100%;
+    width: 250%;
+    padding: 5px 5px 9px;
+    border-radius: 9px;
+    background: #FEC20C;
+	position: absolute;
+	z-index: 100;
+}
+#main table td:nth-child(n+20) > div:hover:after {
+	left: -250%;
+}
+
 #main #link-list {
 	text-align: center;
 	margin: 0 1.5em 2em;
