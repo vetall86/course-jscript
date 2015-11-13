@@ -438,8 +438,9 @@ startTableData += '</tbody></table>';
 
 fixTable += '</tbody></table>' + '<div id="table-box">'+startTableData+'<div>';
 
-window.onload = function() {
+window.addEventListener('load', function() {
 	var content = document.getElementsByClassName('content')[0]
 	content.innerHTML = fixTable;
-}
+}, false);
+
 }();

@@ -46,8 +46,8 @@
 			steward.onScroll();
 		}
 	};
-	window.onload = function(e) {
+	window.addEventListener('load',function(e) {
 		new Steward().init();
-	};
+	}, false);
 
 }();
