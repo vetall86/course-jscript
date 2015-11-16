@@ -1,0 +1,313 @@
+
+@all-width: 960px;
+@all-bg: #191970;
+@body-mg: 0 auto;
+@all-font:10px;
+.all-logo(@color; @font;){
+	color: @color+#aaa;
+	font-size: @font*6;
+	line-height: 1;
+	display: block;	
+}
+.transform(@deg;@scale){
+	-moz-transform:rotate(@deg) scale(@scale);
+	-webkit-transform:rotate(@deg) scale(@scale);
+	transform:rotate(@deg) scale(@scale);
+}
+.transition(@trans; @color; @ease){
+	-moz-transition:transform @trans, color @color ease-in @ease;
+	-webkit-transition:transform @trans, color @color ease-in @ease;
+		transition:transform @trans, color @color ease-in @ease;
+}
+.list{ 
+	float: left;
+	display:block;		
+}
+.nav-list{	
+	text-align: center;
+	border: 1px solid #191970;
+	padding: 10px 0;
+	font-size: 24px;	
+	background: @all-bg+#555;
+}
+.box-border{
+	border: 1px dashed #191970;
+	padding: 10px 5px 0;
+}
+.button-border(@width; @color; @radius) {
+	border-top: solid @width @color+#ccc;	
+	border-right: solid @width*2 @color+#111;
+	border-bottom: solid @width*2 @color+#111;
+	border-left:  solid @width @color+#ccc;
+	box-sizing: border-box;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+* {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font: Arial, Helvetica, sans-serif;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: @all-bg+#ccc;
+}
+a {text-decoration: none;}
+
+#header, #footer {
+	width: @all-width;
+	margin: @body-mg;
+	background: @all-bg;
+	overflow:hidden;
+	}
+	#header .logo,
+	#footer .logo {	
+		float:left;		
+		padding: @all-width/64;
+		}
+		#header .logo a,
+		#footer .logo a{
+			.all-logo(@all-bg; @all-font);
+			}		
+		#header .logo a:hover {			
+			color:#23C574;
+			.transform(720deg;1.3);
+			.transition(.5s; .6s; .1s);
+		}
+		#header .logo a {			
+			color:@all-bg+#aaa;			
+			.transform(-720deg;1);
+			.transition(.5s; .6s; .1s);
+		}
+	#header q, #footer span {
+		float: right;	
+		display: block;
+		color:@all-bg+#aaa;
+		padding: 35px 22px 15px;		
+	}
+
+#main {
+	display:block;
+	width: @all-width;
+	margin: @body-mg;
+	background: @all-bg+#999;
+	}
+	#main .wrapper{
+		padding: 15px;
+		overflow: hidden;
+		}
+		#main .wrapper nav {
+			overflow: hidden;
+			}
+			#main .wrapper nav ul:last-child{
+				display:none;
+			}
+		#main .wrapper nav li {
+			.nav-list;
+			.list;
+			width: @all-width*0.31;
+			.button-border(1px; @all-bg; 15px);
+			margin-bottom: 15px;
+		}
+		#main .wrapper nav li:hover {
+			margin-bottom: 11px;
+			.button-border(2px; @all-bg; 15px);	
+		}
+		#main .wrapper nav li+li {
+			margin-left:15px;
+			}
+			#main .wrapper nav li a{
+				color: @all-bg;
+				padding:@all-width*0.01 @all-width*0.115;
+			}
+	#main .wrapper section {
+		.box-border;
+		width: @all-width*0.62;
+		float: left;
+		padding: 5px;
+		}
+		#main .wrapper section figure {
+			float: left;
+			margin: 0 10px 0 0;
+			}
+			#main .wrapper section figure p{
+				width: @all-width*0.3;
+			}
+			#main .wrapper section figure p img{
+				width: 100%;
+				height: 100%;
+			}
+			#main .wrapper section figure figcaption {
+				font-size: @all-font*4;
+				font-weight: bold;
+				text-align: center;
+				margin: -46px 0 0 0;
+				letter-spacing: 7px;
+			}
+	#main .wrapper aside {
+		.box-border;
+		width: @all-width*0.294;
+		float: right;
+		margin: 0 9px 0 0;	
+		}
+		#main .wrapper aside li {
+			.nav-list;
+			display: block;			
+			margin: 0 0 10px;
+			.button-border(1px; @all-bg; 25px);
+		}
+		#main .wrapper aside li:hover {
+			margin: 0 0 7px;
+			.button-border(2px; @all-bg; 25px);
+		}
+		#main .wrapper aside li a {
+			color: @all-bg;
+		}
+
+@media screen and (max-width: 950px) {
+	header,
+	#main,
+	footer{
+		max-width: @all-width*2/3;
+	}
+	#main .wrapper aside {
+		display:none;
+	}
+	#main .wrapper nav ul:last-child {
+		display:block;
+		}
+	#main .wrapper nav ul {
+		.box-border;
+		width: @all-width*0.3;
+		float: left;
+		margin: 0 0 15px;
+		overflow:hidden;
+		}		
+	#main .wrapper nav ul:last-child {
+		float: right;
+		margin: 0 3px 0 0;		
+	}
+	#main .wrapper nav ul li {		
+		display: block;			
+		margin: 0 0 10px;
+		width: @all-width*0.3;
+		.button-border(1px; @all-bg; 25px);
+		}
+		#main .wrapper nav ul li a{
+			padding:@all-width*0.01 @all-width*0.11;}
+		#main .wrapper nav ul:last-child li:last-child a{
+			padding:@all-width*0.01 @all-width*0.075;}
+	#main .wrapper nav li:hover {
+		margin: 0 0 7px;
+		.button-border(2px; @all-bg; 25px);
+	}
+}
+
+@media screen and (max-width: 676px){
+	header,
+	#main,
+	footer {
+		max-width: @all-width/2;
+	}
+	
+	#main .wrapper nav ul,
+	#main .wrapper nav ul:last-child {		
+		width: @all-width*0.45;
+		float: none;
+		margin: 0 auto 10px;		
+		}
+		#main .wrapper nav ul li{
+			float:none;
+			margin: 0 auto 10px;
+			width: @all-width*0.45;
+			}
+			#main .wrapper nav ul li a {
+				padding:@all-width*0.01 @all-width*0.18;
+			}
+			#main .wrapper nav ul:last-child li:last-child a {
+			padding:@all-width*0.01 @all-width*0.15;}
+		#main .wrapper nav li:hover {
+			margin: 0 auto 7px;		
+		}
+	#main .wrapper section {		
+		width: @all-width*0.45;
+		float: none;
+		margin: 0 auto;		
+		}
+}
+@media screen and (max-width: 516px){
+	header,
+	#main,
+	#footer{
+		max-width: @all-width/3;
+	}
+	#header q, #footer .logo {
+		display:none;		
+	}
+	#header .logo {
+		width:@all-width*0.1; 
+		margin:0 auto;
+		}
+		#header .logo,
+		#footer span {	
+			float: none;
+			text-align: center;
+		}
+	#main .wrapper nav ul {		
+		width: @all-width*0.29;				
+		}
+		#main .wrapper nav ul li{			
+			width: @all-width*0.27;
+		}
+		#main .wrapper nav ul li a {
+				padding:@all-width*0.01 @all-width*0.095;
+			}			
+	#main .wrapper nav ul:last-child{display:none;}
+	#main .wrapper section {		
+		width: @all-width*0.29;
+		height: @all-width*0.35;
+		float: none;
+		overflow: hidden;
+		margin: 0 auto 10px;		
+		}
+		#main .wrapper section figure {
+			margin:0 auto 10px;
+			float:none;
+			}
+			#main .wrapper section figure figcaption {
+				font-size: @all-font*3.4;
+			}
+			#main .wrapper section figure p{
+				width: @all-width*0.29;
+				margin: 0 auto;
+			}
+		#main .wrapper section article {
+			height: @all-width*0.14;
+			overflow:hidden;
+		}
+	#main .wrapper aside {
+		display:block;
+		float:none;
+		width: @all-width*0.29;		
+	}
+	#main .wrapper aside ul {		
+		width: @all-width*0.29;
+
+		}
+		#main .wrapper aside ul li{			
+			width: @all-width*0.27;
+			margin:0 auto 10px;
+		}
+		#main .wrapper aside ul li a {
+			padding:@all-width*0.01 @all-width*0.1;
+		}
+		#main .wrapper aside ul li:last-child a {
+				padding:@all-width*0.01 @all-width*0.06;
+			}
+		#main .wrapper aside li:hover {
+			margin: 0 auto 7px;		
+		}
+}
