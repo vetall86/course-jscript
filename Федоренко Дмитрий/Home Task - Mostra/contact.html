@@ -59,10 +59,12 @@
                     <h1>Contact Us</h1>
                     
                     <form class="search-form">
-                    	<div>
-                    		<input type="text" name="searchItem" placeholder="Browse Products" />
-                        </div>    
-                        <input type="button" name="search" value="Search" />
+                    	<fieldset>
+                    		<div>
+                    			<input type="text" name="search-item" placeholder="Browse Products" />
+                        	</div>    
+                        	<input type="button" name="search" value="Search" />
+                    	</fieldset>
                     </form>
                     
                 </header>
@@ -74,23 +76,27 @@
                     </p>
                     
                     <form class="message-form">
-                    	<div>
-                        	<label for="first-name">First Name:</label>
-                            <input type="text" name="firstName" id="first-name" />
-                        </div>
-                        <div>
-                        	<label for="last-name">Last Name:</label>
-                            <input type="text" name="lastName" id="last-name" />
-                        </div>
-                        <div>
-                        	<label for="email-address">Email Address:</label>
-                            <input type="email" name="emailAddress" id="email-address" />
-                        </div>
-                        <div>
-                        	<label for="message">Message:</label>
-                            <textarea name="message" id="message"></textarea>
-                        </div>
-                        <input type="submit" name="search" value="Send Message" />
+                    
+                    	<fieldset>
+                    		<div>
+                        		<label for="first-name">First Name:</label>
+                            	<input type="text" name="firstName" id="first-name" />
+                        	</div>
+	                        <div>
+    	                    	<label for="last-name">Last Name:</label>
+        	                    <input type="text" name="lastName" id="last-name" />
+            	            </div>
+                	        <div>
+                    	    	<label for="email-address">Email Address:</label>
+                        	    <input type="email" name="emailAddress" id="email-address" />
+	                        </div>
+    	                    <div>
+        	                	<label for="message">Message:</label>
+            	                <textarea name="message" id="message"></textarea>
+                	        </div>
+                    	    <input type="submit" name="search" value="Send Message" />
+                    	</fieldset>
+                        
                     </form>
                                         
                 </section>

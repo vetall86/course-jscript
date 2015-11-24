@@ -147,6 +147,12 @@ nav {
 /* styles of search form */
 form.search-form {
 	float: right;
+	
+	fieldset {
+		margin: 0;
+		padding: 0;
+		border: none;
+	}
 			
 	input[type="button"] {
 		width: 80px;
@@ -157,6 +163,7 @@ form.search-form {
 		color: #627e51;
 		background-color: #c4ddbb;
 		border: 1px solid #a4c696;
+		vertical-align: middle;
 	}
 			
 	input[type="text"] {
@@ -170,6 +177,7 @@ form.search-form {
 		color: #666767;
 		background-color: #fff;
 		border: 3px solid #c4ddbb;
+		vertical-align: middle;
 	}
 			
 	div {
@@ -181,14 +189,18 @@ form.search-form {
 
 /* styles	of main page */
 main.home {
-	margin: 0 0 33px 0;
+	margin: 0 0 33px;
 		
 	>header {
 		position: relative;
-		margin: 0 0 20px 0;
+		margin: 0 0 20px;
 		
 		figure {
 			margin: 0;
+			
+			img {
+				vertical-align: middle;
+			}
 		}
 		
 		h1, h2, p {
@@ -234,7 +246,7 @@ main.home {
 	
 	menu#selector {
 		margin: 0;
-		padding: 0 0 20px 0;
+		padding: 0 0 20px;
 		overflow: hidden;
 		border-bottom: 1px dotted #b0c7dd;
 		
@@ -275,7 +287,7 @@ main.home {
 	
 	article {
 		float: left;
-		margin: 0 0 2px 0;
+		margin: 0 0 2px;
 		padding: 23px 15px 24px 0;
 		border-bottom: 1px dotted #b0c7dd;
 		font-size: 18px;
@@ -298,7 +310,7 @@ main.home {
 		}
 		
 		figure {
-			margin: 0 0 11px 0;
+			margin: 0 0 11px;
 			
 			a:link,
 			a:visited,
@@ -315,6 +327,7 @@ main.home {
 		}
 		
 		footer {
+			overflow: hidden;
 			
 			p {
 				margin: 0 1px;
@@ -344,7 +357,7 @@ main.home {
 	
 	menu#paging {
 		margin: 0;
-		padding: 8px 0 0 0;
+		padding: 8px 0 0;
 		clear: both;
 		
 		ul {
@@ -428,7 +441,7 @@ main.home {
 
 /* styles of about page */
 main.about {
-	margin: 0 0 22px 0;
+	margin: 0 0 22px;
 	border-bottom: 1px dotted #b0c7dd;
 	overflow: hidden;
 		
@@ -438,7 +451,7 @@ main.about {
 		float: left;
 	
 		p:first-of-type {
-			margin: 0 0 19px 0;
+			margin: 0 0 19px;
 		}
 		
 		figure {
@@ -454,6 +467,8 @@ main.about {
 	}
 }
 
+
+/* styles of contact page */
 main.contact {
 	margin: 0 0 22px 0;
 	border-bottom: 1px dotted #b0c7dd;
@@ -465,15 +480,23 @@ main.contact {
 		float: left;
 	
 		p:first-of-type {
-			margin: 0 0 36px 0;
+			margin: 0 0 36px;
 		}
 		
 		form.message-form {
 			padding: 0 6px 0 2px;
 			
+			fieldset {
+				margin: 0;
+				padding: 0;
+				border: none;
+				overflow: hidden;
+			}
+			
 			div {
 				label {
-					display: block;
+					display: inline-block;
+					vertical-align: middle;
 					margin-bottom: 5px;
 					font-family: Verdana, sans-serif;
 					font-size: 14px;
@@ -540,17 +563,18 @@ main.contact {
 /*universal styles of content */
 main.about>header,
 main.contact>header {
-	margin: 0 0 20px 0;
-	padding: 0 0 20px 0;
+	margin: 0 0 20px;
+	padding: 0 0 20px;
 	border-bottom: 1px dotted #b0c7dd;
 	overflow: hidden;
 	
 	figure {
-		margin: 0 0 20px 0;
+		margin: 0 0 20px;
 	}
 	
 	h1 {
-		margin: 2px 0 0 2px;
+		margin: 0;
+		padding: 2px 0 0 2px;
 		font-size: 36px;
 		color: #5290b3;
 		float: left;
@@ -559,7 +583,7 @@ main.contact>header {
 
 main.about section p,
 main.contact section p {
-		margin: 0 0 17px 0;
+		margin: 0 0 17px;
 		font-size: 12px;
 		line-height: 17px;
 		font-family: Verdana, sans-serif;
@@ -572,18 +596,18 @@ main.contact>aside {
 	float: right;
 			
 	h2 {
-		margin: 0 0 17px 0;
+		margin: 0 0 17px;
 		font-size: 22px;
 		color: #156390;
 	}
 	
 	ul {
-		margin: 0 0 27px 0;
+		margin: 0 0 27px;
 		padding: 0;
 		list-style-type: none;
 		
 		li {
-			margin: 0 0 5px 0;
+			margin: 0 0 5px;
 			
 			a:link,
 			a:visited,
@@ -612,13 +636,18 @@ main.contact>aside {
 		margin: 0 14px 0 0;
 		float: left;
 		
-		img {
-			padding: 9px;
-			width: 134px;
-			heigth: 134px;
-			background-color: #deecf4;
-			vertical-align: middle;
-			border: 1px solid #c5e1f2;
+		a:link,
+		a:visited {
+			display: block;
+		
+			img {
+				padding: 9px;
+				width: 134px;
+				heigth: 134px;
+				background-color: #deecf4;
+				vertical-align: middle;
+				border: 1px solid #c5e1f2;
+			}
 		}
 		
 		&:last-of-type {
@@ -629,7 +658,7 @@ main.contact>aside {
 
 /* styles of global footer */
 footer#page-footer {
-	padding: 0 0 26px 0;
+	padding: 0 0 26px;
 	font-family: Verdana, sans-serif;
 	font-size: 11px;
 	font-weight: normal;
