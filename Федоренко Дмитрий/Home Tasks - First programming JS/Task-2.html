@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8">
+		<title>Задача №2 по JS "Массивы"</title>
+        <style>
+			
+			body {
+				width: 1000px;
+				margin: 0 auto;
+			}
+			
+			h1 {
+				font-size: 2em;
+			}
+			
+			p {
+				font-size: medium;
+			}
+			
+			form {
+				text-align: left;
+			}
+			
+			fieldset {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			
+        </style>
+        
+        <script>
+		
+			window.onload = init;
+			
+			function init() {
+				var checkButton = document.getElementById("checkButton");
+				checkButton.onclick = checkTask;
+			}
+			
+			function checkTask() {
+				var array = [];
+				var arrayLength = prompt("Введите число элементов");
+				
+				for(var i = 0; i < arrayLength; i++) {
+					array.push(parseInt(prompt("Введите элемент №" + i)));
+				}
+				
+				alert("Введенный массив: " + array.toString());
+				
+				var notSort = true;
+				
+				while (notSort) {
+					notSort = false;
+					for (var i = 0; i < (arrayLength - 1); i++) {
+						if (array[i] > array[i+1]) {
+							var prom = array[i];
+							array[i] = array[i+1];
+							array[i+1] = prom;
+							notSort = true;
+						} 
+					}
+				}
+								
+				var items = 1;
+				var repeating = false;
+				
+				for (var i = 0; i < (arrayLength - 1); i++) {
+					if (array[i] == array[i+1]) {
+						++items;
+					} else if (items > 1) {
+						alert("число " + array[i] + " повторилось " + items + " раз(а)");
+						items = 1;
+						repeating = true;
+					}
+				}
+				
+				if (items > 1) {
+					alert("число " + array[i] + " повторилось " + items + " раз(а)");					
+				} else if (!repeating) {
+					alert("Ни одно число не повторялось");
+				}
+								
+			}
+		
+		</script>
+        
+	</head>
+
+	<body>
+    	<h1>Задача по JS "Массивы"</h1>
+        
+        <p>
+        2. Написать функцию, которая находит в массиве значения, повторяющиеся два и более раз, и возвращает их.
+        </p>
+        
+        <form>
+        	<fieldset>
+        		<input type="button" id="checkButton" value="Проверить">
+            </fieldset>
+        </form>
+
+	</body>
+
+</html>

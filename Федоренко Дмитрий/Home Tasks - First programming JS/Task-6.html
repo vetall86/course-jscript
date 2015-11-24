@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8">
+		<title>Задача №6 по JS "Массивы"</title>
+        <style>
+			
+			body {
+				width: 1000px;
+				margin: 0 auto;
+			}
+			
+			h1 {
+				font-size: 2em;
+			}
+			
+			p {
+				font-size: medium;
+			}
+			
+			form {
+				text-align: left;
+			}
+			
+			fieldset {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+			
+        </style>
+        
+        <script>
+		
+			window.onload = init;
+			
+			function init() {
+				var checkButton = document.getElementById("checkButton");
+				checkButton.onclick = checkTask;
+			}
+			
+			function checkTask() {
+				var array = [];
+				var arrayLength = prompt("Введите число элементов");
+				var arrayNegativeItems = 0;
+				
+				for (var i = 0; i < arrayLength; i++) {
+					array.push(parseInt(prompt("Введите элемент №" + i)));
+					if (array[i] < 0) {
+						++arrayNegativeItems;
+					}
+				}
+				
+				alert("Введенный массив: " + array.toString());				
+				alert("Число отрицательных элементов массива: " + arrayNegativeItems);
+			}
+		
+		</script>
+        
+	</head>
+
+	<body>
+    	<h1>Задача по JS "Массивы"</h1>
+        
+        <p>
+        6. Задан одномерный массив чисел. Напишите сценарий, который определяет число отрицательных элементов.
+        </p>
+        
+        <form>
+        	<fieldset>
+        		<input type="button" id="checkButton" value="Проверить">
+            </fieldset>
+        </form>
+
+	</body>
+
+</html>
