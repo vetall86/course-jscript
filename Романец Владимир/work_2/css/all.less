@@ -33,7 +33,7 @@ ul{
 a{
 	text-decoration: none;
 }
-header, nav, section, article, footer{
+header, nav, section, article, footer, aside.banner{
 	width:	@content-width;
 	margin: 0 auto;
 	margin-bottom: 20px;
@@ -146,13 +146,7 @@ footer{
 	color: #50868a;
 	font-weight: normal;
 	clear: both;
-	p{
-		display: inline-block;
-		span{
-			color: #1f565a;
-		}
-	}
-	aside{
+	div{
 		float: right;
 		ul{
 			font-size: 0px;
@@ -170,3 +164,10 @@ footer{
 		}
 	}
 }
+	.copy{
+		display: inline-block;
+		a{
+			text-decoration: none;
+			color: #1f565a;
+		}
+	}

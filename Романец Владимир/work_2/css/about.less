@@ -23,12 +23,9 @@ nav{
 		}
 	}
 }
-section{
+aside.banner{
 	height: 101px;
 	background: url(../img/banner_small.jpg) no-repeat 100%;
-	h2{
-		display: none;
-	}
 }
 article{
 	h2{
@@ -36,11 +33,13 @@ article{
 		font-size: 35px;
 		color: #5290b4;
 	}
-	>div{
+	.entry-content{
 		width: 596px;
 		text-align: justify;
 		margin-bottom: 20px;
 		p{
+			padding: 10px 0 0;
+			margin: 0 0 10px;
 			font-family: Verdana, Arial, Sans-serif;
 			font-size: 12px;
 			font-weight: normal;
@@ -49,13 +48,14 @@ article{
 	.collection{
 		width: 576px;
 		padding: 9px;
+		margin: 0 0 10px;
 		font-size: 0px;
 		.overley_border_fill;
 		img{
 			.tshis_figure_size(288px, 195px);
 		}
 	}
-	aside{
+	section{
 		float: right;
 		width: 325px;
 		h3{
