@@ -1,0 +1,977 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8">
+		<title>Задачи по JS "Массивы"</title>
+        <style>
+			
+			body {
+				width: 1000px;
+				margin: 0 auto;
+			}
+			
+			h1 {
+				font-size: 2em;
+			}
+			
+			p {
+				font-size: medium;
+			}
+			
+			form {
+				text-align: left;
+			}
+			
+			fieldset {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+						
+        </style>
+        
+        <script>
+		
+			window.onload = init;
+			
+			function init() {
+				var checkButtonsArray = document.querySelectorAll("input[type='button']");
+				for (var i = 0; i < checkButtonsArray.length; i++) {
+					checkButtonsArray[i].onclick = checkTask;
+				}
+			}
+			
+			function checkTask(e) {
+				var id = e.target.getAttribute('id');
+				
+				switch (id) {
+					
+					case 'checkTask-1':
+						var arrayX = [];
+						var arrayY = [];
+						var arrayLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayLength; i++) {
+							arrayX.push(prompt("Введите элемент №" + i));
+						}
+						
+						var j = arrayLength;
+						for(var i = 0; i < arrayLength; i++) {
+							--j;
+							arrayY[j] = arrayX[i];
+						}
+				
+						alert("Введенный массив: " + arrayX.toString());
+						alert("Реверсивный массив: " + arrayY.toString());
+						
+					break;
+						
+					case 'checkTask-2':
+						
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+						}
+				
+						alert("Введенный массив: " + array.toString());
+				
+						var notSort = true;
+				
+						while (notSort) {
+							notSort = false;
+							for (var i = 0; i < (arrayLength - 1); i++) {
+								if (array[i] > array[i+1]) {
+									var prom = array[i];
+									array[i] = array[i+1];
+									array[i+1] = prom;
+									notSort = true;
+								} 
+							}
+						}
+								
+						var items = 1;
+						var repeating = false;
+				
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							if (array[i] == array[i+1]) {
+								++items;
+							} else if (items > 1) {
+								alert("число " + array[i] + " повторилось " + items + " раз(а)");
+								items = 1;
+								repeating = true;
+							}
+						}
+				
+						if (items > 1) {
+							alert("число " + array[i] + " повторилось " + items + " раз(а)");					
+						} else if (!repeating) {
+							alert("Ни одно число не повторялось");
+						}
+						
+					break;
+						
+					case 'checkTask-3':
+						
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+						var minItem = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+							if ((array[i] % 2) != 0) {
+								if ((minItem == 0) || (minItem > array[i])) {
+									minItem = array[i];
+								}
+							}
+						}
+						alert("Введенный массив: " + array.toString());				
+						alert("Минимальный нечетный элемент: " + minItem);
+						
+					break;
+						
+					case 'checkTask-4':
+						
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+						var arraySumm = 0;
+						
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+							arraySumm += array[i];
+						}
+					
+						alert("Введенный массив: " + array.toString());				
+						alert("Среднее арифметическое массива: " + (arraySumm / arrayLength));
+						
+					break;
+						
+					case 'checkTask-5':
+						
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+						var arrayPositiveItems = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+							if (array[i] > 0) {
+								++arrayPositiveItems;
+							}
+						}
+				
+						alert("Введенный массив: " + array.toString());				
+						alert("Число положительных элементов массива: " + arrayPositiveItems);						
+						
+					break;
+					
+					case 'checkTask-6':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+						var arrayNegativeItems = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+							if (array[i] < 0) {
+								++arrayNegativeItems;
+							}
+						}
+				
+						alert("Введенный массив: " + array.toString());				
+						alert("Число отрицательных элементов массива: " + arrayNegativeItems);
+					
+					break;
+					
+					case 'checkTask-7':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+						}
+				
+						alert("Введенный массив: " + array.toString());
+				
+						var minItem = array[0];
+				
+						for (var i = 0; i < arrayLength; i++) {
+							if (minItem > array[i]) {
+								minItem = array[i];
+							} 
+						}
+							
+						var numberMinItems = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							if (minItem == array[i]) {
+								++numberMinItems;
+							} 
+						}
+				
+						alert("Минимальный элемент " + minItem + " повторился " + numberMinItems + " раз(а)");
+					
+					break;
+					
+					case 'checkTask-8':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+						var cratItems = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+							if ((array[i] % 7) == 0 && (array[i] != 0)) {
+								++cratItems;
+							}
+						}
+				
+						alert("Введенный массив: " + array.toString());				
+						alert("Число элементов, кратных 7: " + cratItems);
+					
+					break;
+					
+					case 'checkTask-9':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+						}
+				
+						alert("Введенный массив: " + array.toString());
+				
+						var minItem = array[0];
+						var minItemsIndex = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							if (minItem >= array[i]) {
+								minItem = array[i];
+								minItemsIndex = i;
+							} 
+						}
+				
+						alert("Минимальный элемент " + minItem + ", номер последнего вхождения в массив " + minItemsIndex);
+					
+					break;
+					
+					case 'checkTask-10':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите элемент №" + i)));
+						}
+				
+						alert("Введенный массив: " + array.toString());
+				
+						var maxItem = array[0];
+						var maxItemsIndex = 0;
+				
+						for (var i = 0; i < arrayLength; i++) {
+							if (maxItem < array[i]) {
+								maxItem = array[i];
+								maxItemsIndex = i;
+							} 
+						}
+				
+						alert("Максимальный элемент " + maxItem + ", номер первого вхождения в массив " + maxItemsIndex);
+					
+					break;
+					
+					case 'checkTask-11':
+					
+						var arrayX = [];
+						var arrayXLength = prompt("Введите число элементов первого массива");
+				
+						for (var i = 0; i < arrayXLength; i++) {
+							arrayX.push(prompt("Введите для первого массива элемент №" + i));
+						}
+				
+						var arrayY = [];
+						var arrayYLength = prompt("Введите число элементов второго массива");
+				
+						for (var i = 0; i < arrayYLength; i++) {
+							arrayY.push(prompt("Введите для второго массива элемент №" + i));
+						}
+				
+						var outString ="Введенный первый массив: " + arrayX.toString() + "\n" +
+										"Введенный второй массив: " + arrayY.toString();
+						alert(outString);
+				
+						var matchesItem = 0;
+						var arrayItems = {};
+						for (var i = 0; i < arrayXLength; i++) {
+							for (var j = 0; j < arrayYLength; j++) {
+								if (arrayY[j] == arrayX[i]) {
+									++matchesItem;
+								}
+							}
+							if (matchesItem > 0) {
+								arrayItems[arrayX[i]] = matchesItem;
+							}
+							matchesItem = 0;
+						}
+				
+						var matches = 0;
+						for (var prop in arrayItems) {
+							++matches;
+							outString += "\nЭлемент " + prop +  " совпал " + arrayItems[prop] + " раз(а)";
+						}
+						outString += "\nОбщее число совпадающих элементов: " + matches;
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-12':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов массива");
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(prompt("Введите для массива элемент №" + i));
+						}
+				
+						var outString ="Введенный массив: " + array.toString();
+						alert(outString);
+				
+						var matchesItem = 0;
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							for (var j = i+1; j < arrayLength; j++) {
+								if (array[j] == array[i]) {
+									++matchesItem;
+									outString += "\nСовпадение есть: элемент " + array[i] + " имеет совпадение";
+									break;
+								}
+							}
+							if (matchesItem > 0) {
+								break;
+							}
+						}
+						
+						if (matchesItem == 0) {
+							outString += "\nСовпадений нет";
+						}
+									
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-13':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов массива");
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(prompt("Введите для массива элемент №" + i));
+						}
+				
+						var outString ="Введенный массив: " + array.toString();
+						alert(outString);
+				
+						var matchesItem = 0;
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							for (var j = i+1; j < arrayLength; j++) {
+								if (array[j] == array[i]) {
+									++matchesItem;
+									outString += "\nСовпадение есть: элемент " + array[i] + " имеет совпадение";
+									break;
+								}
+							}
+							if (matchesItem > 0) {
+								break;
+							}
+						}
+						
+						if (matchesItem == 0) {
+							outString += "\nВсе элементы массива различны";
+						}
+									
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-14':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов массива");
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseFloat(prompt("Введите для массива элемент №" + i)));
+						}
+				
+						var outString ="Введенный массив: " + array.toString();
+						alert(outString);
+				
+						var matrix = [];
+						var j = 0;
+						var sequence = 1;
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							if (array[i] <= array[i+1]) {
+								if (sequence == 1) {
+									matrix[j] = [];
+								}
+								matrix[j].push(array[i]);
+								if ((i+1) == (arrayLength - 1)) {
+									matrix[j].push(array[i+1]);
+								}
+								++sequence;
+							} else if (sequence > 1) {
+								matrix[j].push(array[i]);
+								sequence = 1;
+								++j;
+							}
+						}
+						
+						var maxArray = [];
+						for (var j = 0; j < matrix.length; j++) {
+							if (maxArray.length < matrix[j].length) {
+								maxArray = matrix[j];
+							}
+						}
+						
+						
+						if (maxArray.length > 1) {
+							outString += "\nНеубывающая последовательность из " + maxArray.length + " элементов \n" + maxArray.join("<=");
+						} else {
+							outString += "\nПоследовательности нет";
+						}
+									
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-15':
+					
+						var arrayX = [];
+						var arrayXLength = prompt("Введите число элементов первого массива");
+				
+						for (var i = 0; i < arrayXLength; i++) {
+							arrayX.push(parseFloat(prompt("Введите для первого массива элемент №" + i)));
+						}
+				
+						var arrayY = [];
+						var arrayYLength = prompt("Введите число элементов второго массива");
+				
+						for (var i = 0; i < arrayYLength; i++) {
+							arrayY.push(parseFloat(prompt("Введите для второго массива элемент №" + i)));
+						}
+				
+						var outString ="Введенный первый массив: " + arrayX.toString() + "\n" +
+										"Введенный второй массив: " + arrayY.toString();
+						alert(outString);
+						
+						for (var i = 0; i < (arrayX.length-1); i++) {
+							for (var j = i+1; j < arrayX.length; j++) {
+								if (arrayX[j] == arrayX[i]) {
+									 arrayX.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+												
+						for (var i = 0; i < (arrayY.length-1); i++) {
+							for (var j = i+1; j < arrayY.length; j++) {
+								if (arrayY[j] == arrayY[i]) {
+									 arrayY.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+						
+						for (var i = 0; i < arrayX.length; i++) {
+							for (var j = 0; j < arrayY.length; j++) {
+								if (arrayY[j] == arrayX[i]) {
+									 arrayY.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+												
+						for (var j = 0; j < arrayY.length; j++) {
+							arrayX.push(arrayY[j]);
+						}
+						
+						arrayX.sort(function (elm1, elm2) {
+							return (elm1 > elm2);
+						});
+						console.log(String(arrayX));
+						outString += "\nРезультирующий массив: " + (String(arrayX));
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-16':
+					
+						var arrayX = [];
+						var arrayXLength = prompt("Введите число элементов первого массива");
+				
+						for (var i = 0; i < arrayXLength; i++) {
+							arrayX.push(parseFloat(prompt("Введите для первого массива элемент №" + i)));
+						}
+				
+						var arrayY = [];
+						var arrayYLength = prompt("Введите число элементов второго массива");
+				
+						for (var i = 0; i < arrayYLength; i++) {
+							arrayY.push(parseFloat(prompt("Введите для второго массива элемент №" + i)));
+						}
+				
+						var outString ="Введенный первый массив: " + arrayX.toString() + "\n" +
+										"Введенный второй массив: " + arrayY.toString();
+						alert(outString);
+						
+						for (var i = 0; i < (arrayX.length-1); i++) {
+							for (var j = i+1; j < arrayX.length; j++) {
+								if (arrayX[j] == arrayX[i]) {
+									 arrayX.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+						
+						for (var i = 0; i < (arrayY.length-1); i++) {
+							for (var j = i+1; j < arrayY.length; j++) {
+								if (arrayY[j] == arrayY[i]) {
+									 arrayY.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+						
+						var arrayZ = [];						
+						for (var i = 0; i < arrayX.length; i++) {
+							for (var j = 0; j < arrayY.length; j++) {
+								if (arrayY[j] == arrayX[i]) {
+									 arrayZ.push(arrayX[i]);
+								}
+							}
+						}
+												
+						arrayZ.sort(function (elm1, elm2) {
+							return (elm1 > elm2);
+						});
+						if (arrayZ.length > 0){
+							outString += "\nРезультирующий массив: " + String(arrayZ);
+						} else {
+							outString += "\nРезультирующий массив  пустой";
+						}
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-17':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов массива");
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseFloat(prompt("Введите для первого массива элемент №" + i)));
+						}
+										
+						var outString ="Введенный массив: " + array.toString();
+						alert(outString);
+						
+						for (var i = 0; i < (array.length-1); i++) {
+							for (var j = i+1; j < array.length; j++) {
+								if (array[j] == array[i]) {
+									 array.splice(j, 1);
+									 --j;
+								}
+							}
+						}
+												
+						array.sort(function (elm1, elm2) {
+							return (elm1 > elm2);
+						});
+						
+						outString += "\nУникальных элементов: " + array.length
+									+ "\nРезультирующий массив: " + String(array);
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-18':
+					
+						var array = [];
+						var arrayLength = prompt("Введите число элементов массива");
+				
+						for (var i = 0; i < arrayLength; i++) {
+							array.push(parseInt(prompt("Введите для массива элемент №" + i)));
+						}
+				
+						var outString ="Введенный массив: " + array.toString();
+						alert(outString);
+				
+						var matrix = [];
+						var j = 0;
+						var sequence = 1;
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							
+							if ((i % 2) == 0) {
+								if (array[i] < array[i+1]) {
+									if (sequence == 1) {
+										matrix[j] = [];
+									}
+									matrix[j].push(array[i]);
+									++sequence;
+									if ((i+1) == (arrayLength - 1)) {
+										matrix[j].push(array[i+1]);
+										++j;
+									}
+								} else if (sequence > 1) {
+									matrix[j].push(array[i]);
+									sequence = 1;
+									++j;
+								}
+							}
+							
+							if ((i % 2) != 0) {
+								if (array[i] > array[i+1]) {
+									if (sequence == 1) {
+										matrix[j] = [];
+									}
+									matrix[j].push(array[i]);
+									++sequence;
+									if ((i+1) == (arrayLength - 1)) {
+										matrix[j].push(array[i+1]);
+										++j;
+									}
+								} else if (sequence > 1) {
+									matrix[j].push(array[i]);
+									sequence = 1;
+									++j;
+								}
+							}
+							
+						}
+							
+							sequence = 1;					
+						for (var i = 0; i < (arrayLength - 1); i++) {
+							
+							if ((i % 2) == 0) {
+								if (array[i] > array[i+1]) {
+									if (sequence == 1) {
+										matrix[j] = [];
+									}
+									matrix[j].push(array[i]);
+									++sequence;
+									if ((i+1) == (arrayLength - 1)) {
+										matrix[j].push(array[i+1]);
+									}
+								} else if (sequence > 1) {
+									matrix[j].push(array[i]);
+									sequence = 1;
+									++j;
+								}
+							}
+							
+							if ((i % 2) != 0) {
+								if (array[i] < array[i+1]) {
+									if (sequence == 1) {
+										matrix[j] = [];
+									}
+									matrix[j].push(array[i]);
+									++sequence;
+									if ((i+1) == (arrayLength - 1)) {
+										matrix[j].push(array[i+1]);
+									}
+								} else if (sequence > 1) {
+									matrix[j].push(array[i]);
+									sequence = 1;
+									++j;
+								}
+							}
+							
+						}
+						
+						var maxArray = [];
+						for (var j = 0; j < matrix.length; j++) {
+							if (maxArray.length < matrix[j].length) {
+								maxArray = matrix[j];
+							}
+						}
+						
+						
+						if (maxArray.length > 1) {
+							outString += "\nПилообразная последовательность из " + maxArray.length + " элементов \n" + maxArray.join("<>");
+						} else {
+							outString += "\nПоследовательности нет";
+						}
+									
+						alert(outString);
+					
+					break;
+				}
+			}
+		
+		</script>
+        
+	</head>
+
+	<body>
+    	<h1>Задачи по JS "Массивы"</h1>
+        
+        <div>
+        	<p>
+        	1.Написать функцию, которая возвращает содержимое массива наоборот.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-1" value="Проверить">
+            	</fieldset>
+        	</form>
+        </div>    
+        
+        <div>
+        
+        	<p>
+        	2. Написать функцию, которая находит в массиве значения, повторяющиеся два и более раз, и возвращает их.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-2" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+       		3. Написать функцию, которая находит в массиве самое маленькое нечетное число и возвращает его.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-3" value="Проверить">
+            	</fieldset>
+     	 	</form>
+        
+        </div>
+        
+        <div>
+        	
+            <p>
+        	4. Написать функцию для поиска среднего арифметического значений массива.
+        	</p>
+        
+	        <form>
+    	    	<fieldset>
+        			<input type="button" id="checkTask-4" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	5. Задан одномерный массив чисел. Напишите сценарий, который определяет число положительных элементов массива.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-5" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	6. Задан одномерный массив чисел. Напишите сценарий, который определяет число отрицательных элементов.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-6" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	7. Задан одномерный массив целых чисел. Напишите сценарий, который определяет число минимальных элементов.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-7" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	8. Задан одномерный массив целых чисел. Напишите сценарий, который определяет число элементов, кратных 7.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-8" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	9. Задан одномерный массив целых чисел. Напишите функцию, которая возвращает номер последнего минимального значения.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-9" value="Проверить">
+            	</fieldset>
+        	</form>
+        
+        </div>
+        
+        <div>
+        
+        	<p>
+        	10. Напишите функцию, который определяет номер первого максимального значения в одномерном массиве целых чисел.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-10" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	11. Напишите сценарий, при работе которого определяется число элементов одномерного массива, совпадающих с заданным массивом.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-11" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	12. Напишите функцию, при работе которой определяется, есть ли в массиве элементы, значения которых совпадают.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-12" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+         <div>
+        
+        	<p>
+        	13. Напишите функцию, определяющую все ли элементы массива различны.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-13" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	14. Напишите сценарий, определяющий максимальную по длине неубывающую последовательность.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-14" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	15. Напишите сценарий, который объединяет два упорядоченных массива таким образом, что в результирующем массиве все элементы различны.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-15" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	16. Напишите сценарий, который по двум массивам строит третий, являющийся пересечением заданных.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-16" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	17. Напишите функцию, которая определяет, сколько различных чисел в заданном массиве.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-17" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	18. Напишите функцию, которая для заданного массива целых чисел определяет длину К самой длинной "пилообразной" последовательности идущих подряд чисел: Последовательность a1, a2, a3, … , an1, an называется пилообразной, если она удовлетворяет одному из следующих условий:
+            	<ol>
+					<li>a1 < a2 > a3 < … > an1 < an</li>
+					<li>a1 > a2 < a3 > … < an1 > an</li>
+				</ol>
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-18" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+
+	</body>
+
+</html>
