@@ -708,7 +708,226 @@
 						alert(outString);
 					
 					break;
+					
+					case 'checkTask-19':
+					
+						var arrayX = [];
+						var arrayXLength = prompt("Введите число элементов g массива X");
+				
+						for (var i = 0; i < arrayXLength; i++) {
+							arrayX.push(prompt("Введите для массива X элемент №" + i));
+						}
+				
+						var arrayY = [];
+						var arrayYLength = prompt("Введите число элементов k массива Y");
+				
+						for (var i = 0; i < arrayYLength; i++) {
+							arrayY.push(prompt("Введите для массива Y элемент №" + i));
+						}
+				
+						var outString ="Введенный массив X: " + arrayX.toString() + "\n" +
+										"Введенный массив Y: " + arrayY.toString();
+						alert(outString);
+						
+						var sequence = false;
+						var result = '';
+						for (var i = 0; i < (arrayX.length - 1); i++) {
+							for (var j = 0; j < (arrayY.length - 1); j++) {
+								if (arrayY[j] == arrayX[i]) {
+									 if (arrayY[j+1] == arrayX[i+1]) {
+										sequence = true;
+										result = arrayY[j] + ", "+ arrayY[j+1];
+										break;
+									 }
+								}
+							}
+							if (sequence) {
+								break;
+							}
+						}
+						
+						
+						if (sequence){
+							outString += "\nСуществуют подряд идущие элементы: " + result;
+						} else {
+							outString += "\nПодряд идущих элементов нет";
+						}
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-22':
+						
+						var arrayX = [];
+						var arrayXLength = prompt("Введите число элементов");
+				
+						for(var i = 0; i < arrayXLength; i++) {
+							arrayX.push(parseInt(prompt("Введите элемент №" + i)));
+						}
+						
+						var outString = "Введенный массив: " + arrayX.toString();
+						alert(outString);
+						
+						if (confirm("Сортируем массив по возрастанию?")) {
+							outString +="\nОтсортирован по возрастанию: " + arraySort(arrayX, arrayXLength, 1);
+						} else {
+							outString +="\nОтсортирован по убыванию: " + arraySort(arrayX, arrayXLength, 0);
+						}
+						
+						alert(outString);
+										
+					break;
+					
+					case 'checkTask-23':
+						
+						var arrayLength = prompt("Введите число элементов");
+						
+						var array = fullArray(arrayLength, -20, 20);
+						var outString = "Сгенерированный массив: " + array.toString();
+						alert(outString);
+						
+						var minIndex;
+						var maxIndex;
+						for (var i = 0; i < arrayLength; i++) {
+							if (array[i] < 0) {
+								if (minIndex != undefined) {
+									maxIndex = i;
+								} else {
+									minIndex = i;
+								}
+							}
+						}
+												
+						var notSort = true;
+						while (notSort) {
+							notSort = false;
+							for (i = (minIndex + 1); i < (maxIndex - 1); i++) {
+								if (array[i] > array[i+1]) {
+									var prom = array[i];
+									array[i] = array[i+1];
+									array[i+1] = prom;
+									notSort = true;
+								}
+							}
+						}
+						outString += "\nРезультирующий массив: " + array.toString();
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-24':
+					
+						var array = fullArray(20, 1, 20);
+						var someParam = createRandom(1, 20);
+						var someIndex = 0;
+						var outString = "Сгенерированный массив: " + array.toString() + "\nСлучайное число: " + someParam;
+						alert(outString);
+						
+						for (var i = 0; i < array.length; i++) {
+							if (array[i] == someParam) {
+								someIndex = i;
+							}
+						}
+						
+						var notSort = true;
+						while (notSort) {
+							notSort = false;
+							for (var i = 0; i < (someIndex - 1); i++) {
+								if (array[i] < array[i+1]) {
+									var prom = array[i];
+									array[i] = array[i+1];
+									array[i+1] = prom;
+									notSort = true;
+								}
+							}
+						}
+						
+						notSort = true;
+						while (notSort) {
+							notSort = false;
+							for (var i = (someIndex + 1); i < (array.length - 1); i++) {
+								if (array[i] > array[i+1]) {
+									var prom = array[i];
+									array[i] = array[i+1];
+									array[i+1] = prom;
+									notSort = true;
+								}
+							}
+						}
+						
+						outString += "\nРезультирующий массив: " + array.toString();
+						alert(outString);
+						
+					break;
 				}
+			}
+			
+			
+			function arraySort(array, length, choose) {
+				var notSort = true;
+				
+				if (choose === undefined) {
+					var choose = 1;
+				} else {
+					var choose = choose;
+				}
+				if (choose) {
+					
+					while (notSort) {
+					notSort = false;
+						for (var i = 0; i < (length - 1); i++) {
+							if (array[i] > array[i+1]) {
+								var prom = array[i];
+								array[i] = array[i+1];
+								array[i+1] = prom;
+								notSort = true;
+							} 
+						}
+					}
+				
+				} else {
+					
+					while (notSort) {
+					notSort = false;
+						for (var i = 0; i < (length - 1); i++) {
+							if (array[i] < array[i+1]) {
+								var prom = array[i];
+								array[i] = array[i+1];
+								array[i+1] = prom;
+								notSort = true;
+								} 
+							}
+						}
+					}
+							
+				return array;
+			}
+			
+			function fullArray(length, minimum, maximum) {
+				var array = [];
+				for (var i = 0; i < length; i++) {
+					array[i] = createRandom(minimum, maximum);
+				}
+						
+				var notIndiv = true;
+				while (notIndiv) {
+					notIndiv = false;
+					for (var i = 0; i < (length - 1); i++) {
+						for (var j = i + 1; j < length; j++) {
+							if (array[j] == array[i]) {
+								array[j] = createRandom(minimum, maximum);
+								notIndiv = true;
+							}
+						}
+					}
+				}
+				
+				return array;
+			}
+			
+			function createRandom(minimum, maximum) {
+				var rand = (minimum + Math.random() * (maximum - minimum + 1));
+				return Math.floor(rand);
 			}
 		
 		</script>
@@ -967,6 +1186,68 @@
         	<form>
         		<fieldset>
         			<input type="button" id="checkTask-18" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	19. Напишите функцию, который для заданных двух массивов X из g элементов и У из k элементов определяет, существуют ли одинаковые подряд идущие элементы.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-19" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	22. Дан массив чисел размерностью 10 элементов. Написать функцию, которая сортирует массив по возрастанию или по убыванию, в зависимости от третьего параметра функции. Если он равен 1, сортировка идет по убыванию, если 0, то по возрастанию. Первые 2 параметра функции это массив и его размер, третий параметр
+по умолчанию равен 1.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-22" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	23. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними.
+        	</p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-23" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	24. Дан массив из 20 целых чисел со значениями от 1 до 20. Необходимо:
+            	<ul>
+                	<li>написать функцию, разбрасывающую элементы массива произвольным образом;</li>
+                    <li>создать случайное число из того же диапазона и найти позицию этого случайного числа в массиве;</li>
+                    <li>отсортировать элементы массива, находящиеся слева от найденной позиции по убыванию, а элементы массива, находящиеся справа от найденной позиции по возрастанию.</li>
+        		</ul>
+            </p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-24" value="Проверить">
             	</fieldset>
         	</form>
             
