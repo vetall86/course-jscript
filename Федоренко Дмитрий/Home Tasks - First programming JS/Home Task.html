@@ -4,7 +4,7 @@
 
 	<head>
     
-		<meta charset="utf-8">
+		<meta charset="utf-8" />
 		<title>Задачи по JS "Массивы"</title>
         <style>
 			
@@ -859,6 +859,179 @@
 						alert(outString);
 						
 					break;
+					
+					case 'checkTask-23-2':
+						var enterMax = parseInt(prompt("Массив 3х4 сформируется рамдомно. Укажите максимальное значение элементов:"));
+						var matrix = [];
+						for (var i = 0; i < 4; i++) {
+							matrix[i] = [];
+							for (var j = 0; j < 3; j++) {
+								matrix[i][j] = createRandom(0, enterMax);
+							}
+						}
+						
+						var nullItems = 0;
+						
+						for (var i = 0; i < 4; i++) {
+							for (var j = 0; j < 3; j++) {
+								if (matrix[i][j] == 0){
+									++nullItems;
+								}
+							}
+						}
+						
+						var outString = "Сформирован массив 3х4:";
+						for (var j = 0; j < 3; j++) {
+							outString += "\n"
+							for (var i = 0; i < 4; i++) {
+								outString +=" [" + String(matrix[i][j]) + "] ";
+							}
+						}
+						
+						outString += "\nКоличество элементов равных 0: " + nullItems;
+						
+						alert(outString);
+					
+					break;
+					
+					case 'checkTask-24-2':
+						var matrixSize = parseInt(prompt("Укажите величину n для матрицы размером nXn:"));
+						var enterMin = parseInt(prompt("Матрица " + matrixSize + "х" + matrixSize + " сформируется рамдомно. Укажите минимальное значение элементов:"));
+						var enterMax = parseInt(prompt("Матрица " + matrixSize + "х" + matrixSize + " сформируется рамдомно. Укажите максимальное значение элементов:"));
+						var matrix = [];
+						
+						for (var i = 0; i < matrixSize; i++) {
+							matrix[i] = [];
+							for (var j = 0; j < matrixSize; j++) {
+								matrix[i][j] = createRandom(enterMin, enterMax);
+							}
+						}
+						
+						var outString = "Сформирована матрица "  + matrixSize + "х" + matrixSize + ":";
+						for (var j = 0; j < matrixSize; j++) {
+							outString += "\n";
+							for (var i = 0; i < matrixSize; i++) {
+								outString +=" [" + String(matrix[i][j]) + "] ";
+							}
+						}
+						
+						var maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = 0; j <= i; j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант а) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = i; j < matrixSize; j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант б) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var j = 0; j < matrixSize; j++) {
+							for (var i = j; i < (matrixSize - j); i++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант в) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var j = (matrixSize - 1); j >= 0; j--) {
+							for (var i = (matrixSize - 1 - j); i <= j; i++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант г) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var j = 0; j < matrixSize; j++) {
+							for (var i = j; i < (matrixSize - j); i++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						for (var j = (matrixSize - 1); j >= 0; j--) {
+							for (var i = (matrixSize - 1 - j); i <= j; i++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант д) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = i; j < (matrixSize - i); j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						for (var i = (matrixSize - 1); i >=0; i--) {
+							for (var j = (matrixSize - 1 - i); j <= i; j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант е) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = i; j < (matrixSize - i); j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант ж) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = (matrixSize - 1); i >=0; i--) {
+							for (var j = (matrixSize - 1 - i); j <= i; j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант з) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = 0; j < (matrixSize - i); j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}
+							}
+						}
+						outString += "\nВариант и) максимальное = " + maxItem;
+						
+						maxItem = enterMin;
+						for (var i = 0; i < matrixSize; i++) {
+							for (var j = (matrixSize - 1 - i); j < matrixSize; j++) {
+								if (maxItem < matrix[i][j]) {
+									maxItem = matrix[i][j];
+								}console.log(i+" "+j);
+							}
+						}
+						outString += "\nВариант к) максимальное = " + maxItem;
+						
+						alert(outString);
+					
+					break;
 				}
 			}
 			
@@ -1248,6 +1421,37 @@
         	<form>
         		<fieldset>
         			<input type="button" id="checkTask-24" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	23. Дан двухмерный массив размерностью 3X4. Необходимо найти количество элементов значение которых равно нулю.
+            </p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-23-2" value="Проверить">
+            	</fieldset>
+        	</form>
+            
+        </div>
+        
+        <div>
+        
+        	<p>
+        	24. Дана квадратная матрица порядка n (n строк, n столбцов). Найти наибольшее из значений элементов, расположенных в тёмносиних частях матриц.
+            	<figure>
+                	<img src="images/matrix.jpg" alt="Picture with matrix" />
+                </figure>
+            </p>
+        
+        	<form>
+        		<fieldset>
+        			<input type="button" id="checkTask-24-2" value="Проверить">
             	</fieldset>
         	</form>
             
