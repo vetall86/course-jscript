@@ -1,0 +1,185 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	color: #fff;
+}
+body{
+	background: #162a60 url(../img/bg.png);
+	font-family: Bookman Old Style;
+}
+#wrapper{
+	padding: 10px;
+}
+header{
+	padding: 20px 0px;
+	margin: 0px auto 75px auto;
+	max-width: 935px;
+}
+	.logo {
+		width: 100px;
+		height: 45px;
+		font-weight: normal;
+		font-size: 40px;
+	}
+		.logo a{
+			text-decoration: none;
+		}
+#main{
+	display: block; /*Т.к. кроме новых версий браузеров chrome & Firefox данный тег никто не понимает */
+					/*объявим данный элемент блоком, чтоб исправить этот момент*/
+	font-size: 0%;  /*убираем пробелы между inline-block элементами*/
+	max-width: 935px;
+	margin: 0px auto 25px auto;
+}
+#main ul{
+	list-style: none;
+	text-align: center;
+}
+	#main li{
+		display: inline-block;
+		box-sizing: border-box;
+		font-size: 16px;
+		margin: 5px;
+		width: 150px;
+		height: 150px;
+		text-align: left;
+		overflow: hidden;
+	}
+	#main li a{
+		padding: 0 0 5px 5px;
+		text-decoration: none;
+		box-sizing: border-box;
+		display: block;
+		width:100%;
+		height:100%;
+	}
+	#main ul li>a:after{
+		content: "";
+		display: inline-block;
+		vertical-align: bottom;
+		height: 100%;
+	}
+		#main li:first-child{
+			background: #3387ea url(../img/home.png) no-repeat center;
+		}
+		#main li:nth-child(2){
+			background: #f9be3e url(../img/about.png) no-repeat center;
+		}
+		#main li:nth-child(3){
+			width: 280px;
+			background: #d3573e url(../img/portfolio.png) no-repeat center;
+		}
+		#main li:nth-child(4){
+			background: #59b0e2 url(../img/photo.png) no-repeat center;
+		}
+		#main li:nth-child(5){
+			background: #33af95 url(../img/testimonials.png) no-repeat center;
+		}
+		#main li:nth-child(6){
+			width: 310px;
+			background: #86a73f url(../img/chair.png) no-repeat center;
+		}
+		#main li:nth-child(7){
+			width: 440px;
+			background: #151a26;
+		}
+			#main li:nth-child(7) img{
+				float: left;
+				margin: 0 0 0 -5px;
+			}
+		#main li:last-child{
+			background: #7e5b8c url(../img/contact.png) no-repeat center;
+		}
+footer{
+	height: 75px;
+	font-size: 0%;  /*убираем пробелы между inline-block элементами*/
+	max-width: 935px;
+	margin: 0px auto;
+	overflow: hidden;
+	text-align: right;
+}
+	footer ul{
+		list-style: none;
+	}
+		footer li{
+			float: left;
+			margin: 0px 5px 0px 5px;
+			height: 75px;
+			width: 75px;
+		}
+			footer li:nth-child(1){
+				background: url(../img/sprite-ss.png) no-repeat -150px center;
+			}
+			footer li:nth-child(2){
+				background: url(../img/sprite-ss.png) no-repeat center;
+			}
+			footer li:nth-child(3){
+				background: url(../img/sprite-ss.png) no-repeat 2px center;
+			}
+			footer li a{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		footer span{
+			font-size: 14px;
+		}
+		footer:after{
+			content: "";
+			display: inline-block;
+			vertical-align: bottom;
+			height: 100%;
+			margin: 0 0 0 -2px;
+		}
+#main li:nth-child(7) span,
+footer span{
+	color: #7f8cae;
+}
+@media screen and (max-width: 950px){
+	header,
+	#main,
+	footer{
+		max-width: 640px;
+	}
+	#main li:nth-child(3),
+	#main li:nth-child(6),
+	#main li:nth-child(7){
+		width: 150px;
+		height: 150px;
+	}
+	#main li:nth-child(7) img,
+	#main li:nth-child(7) p{
+		display: none;
+	}
+	#main li:nth-child(7){
+		background: #151a26 url(../img/blog.png) no-repeat center;
+
+	}
+	#main li:nth-child(7) span{
+		color: white;
+	}
+}
+@media screen and (max-width: 676px){
+	header,
+	#main{
+		max-width: 480px;
+	}
+	footer{
+		text-align: center;
+		height: auto;
+	}
+	footer li{
+		float: none;
+		display: inline-block;
+		margin-bottom: 15px;
+	}
+	footer span{
+		display: block;
+	}
+}
+@media screen and (max-width: 516px){
+	header,
+	#main{
+		max-width: 320px;
+	}
+}
