@@ -27,14 +27,15 @@ body {
   text-decoration: none;
   color: green;
   font-size: 50px;
+  overflow: hidden;
 }
-#wrapper header .header-row .logo a span {
+#wrapper header .header-row .logo a strong {
+  float: left;
   color: #125c87;
-  margin: 0 -10px;
 }
-#wrapper header .header-row .logo a p {
+#wrapper header .header-row .logo a strong strong {
+  float: left;
   color: green;
-  margin: 0 10px;
 }
 #wrapper header .header-row .box {
   width: 300px;
@@ -51,17 +52,19 @@ body {
 #wrapper header .header-row .box a {
   text-decoration: none;
   color: green;
+  font-style: italic;
+  font-weight: bold;
 }
 #wrapper nav {
   background: white;
   overflow: hidden;
-  padding: 0 0 10px 0;
 }
 #wrapper nav ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
   padding: 0 0 10px 0;
+  overflow: hidden;
 }
 #wrapper nav ul li {
   float: left;
@@ -95,10 +98,10 @@ body {
 #wrapper nav ul .social li a:hover {
   background: inherit;
 }
-#wrapper nav .home {
+#wrapper nav .active {
   background: #125c87;
 }
-#wrapper nav .home:after {
+#wrapper nav .active:after {
   content: '';
   position: absolute;
   left: 50%;
@@ -115,7 +118,7 @@ body {
   overflow: hidden;
 }
 #wrapper .banner .banner-text {
-  width: 50%;
+  width: 345px;
   text-align: right;
   position: absolute;
   top: 20px;
@@ -124,10 +127,14 @@ body {
 #wrapper .banner .banner-text strong {
   font-size: 35px;
   color: #5390b4;
+  float: right;
+  margin-bottom: 10px;
 }
 #wrapper .banner .banner-text span {
   font-size: 18px;
   color: #5390b4;
+  float: right;
+  margin-bottom: 10px;
 }
 #wrapper .banner .banner-text a {
   float: right;
@@ -172,7 +179,7 @@ body {
 #wrapper .menu .menu-option ul li {
   display: inline-block;
 }
-#wrapper .menu .menu-option ul li .now-activated {
+#wrapper .menu .menu-option ul li .active {
   text-decoration: none;
   color: grey;
   text-align: center;
@@ -201,7 +208,12 @@ body {
   float: right;
   width: 39%;
 }
-#wrapper .menu .menu-search .search-box {
+#wrapper .menu .menu-search fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+#wrapper .menu .menu-search fieldset .search-box {
   padding: 0;
   margin: 0 0 0 10px;
   border: 4px solid;
@@ -209,13 +221,13 @@ body {
   width: 70%;
   border-color: #c5debb;
 }
-#wrapper .menu .menu-search .search-box:after {
+#wrapper .menu .menu-search fieldset .search-box:after {
   content: "";
   height: 100%;
   vertical-align: middle;
   display: inline-block;
 }
-#wrapper .menu .menu-search .search {
+#wrapper .menu .menu-search fieldset .search {
   background: #c5debb;
   color: #637f51;
   font-weight: bold;
@@ -226,6 +238,10 @@ body {
   width: 25%;
   display: block;
   height: 30px;
+}
+#wrapper .menu .menu-search fieldset .search:hover {
+  color: #4b603d;
+  background: #a8cd99;
 }
 #wrapper #main {
   /* index.html */
@@ -245,134 +261,112 @@ body {
   border-bottom: none;
   padding-bottom: 0;
 }
-#wrapper #main ul li {
+#wrapper #main ul .box-item {
   float: left;
   margin-left: 5%;
   width: 30%;
 }
-#wrapper #main ul li:first-child {
+#wrapper #main ul .box-item:first-child {
   margin-left: 0;
 }
-#wrapper #main ul li .item {
-  display: inline-block;
-  overflow: hidden;
+#wrapper #main ul .box-item:hover {
+  background: #dfedf5;
 }
-#wrapper #main ul li .item header .title {
-  color: #136392;
-  text-align: left;
-  float: left;
-}
-#wrapper #main ul li .item .box-item {
-  display: inline-block;
-}
-#wrapper #main ul li .item .box-item .item-href {
+#wrapper #main ul .box-item .item-href {
   display: block;
   height: 100%;
   width: 100%;
 }
-#wrapper #main ul li .item .box-item .item-href .preview {
+#wrapper #main ul .box-item .item-href .preview {
   display: block;
   width: 96%;
   height: 100%;
   padding: 5px;
   background: #dfedf5;
 }
-#wrapper #main ul li .item footer strong {
+#wrapper #main ul .box-item .item {
+  display: inline-block;
+  overflow: hidden;
+}
+#wrapper #main ul .box-item .item header .title {
+  color: #136392;
+  text-align: left;
+  float: left;
+  margin: 0;
+}
+#wrapper #main ul .box-item .item footer strong {
   float: left;
 }
-#wrapper #main ul li .item footer p {
-  float: left;
+#wrapper #main ul .box-item .item footer strong mark {
   color: #637f51;
   font-weight: bold;
   margin: 0;
+  background: none;
 }
-#wrapper #main ul li .item footer .cod {
+#wrapper #main ul .box-item .item footer .cod {
   float: right;
   text-align: right;
 }
-#wrapper #main .switcher {
+#wrapper #main .pagination {
   overflow: hidden;
   background: #dfedf5;
   padding: 10px;
   margin-bottom: 10px;
 }
-#wrapper #main .switcher .sw-left {
-  width: 45%;
-  float: left;
-}
-#wrapper #main .switcher .sw-left a {
-  display: block;
-  height: 30px;
-  width: 90px;
-  color: white;
-  font-size: 1em;
-  text-align: center;
-  text-decoration: none;
-  background: #218cc8;
-  font-size: 20px;
-}
-#wrapper #main .switcher .sw-left a:after {
-  content: "";
-  height: 100%;
-  vertical-align: middle;
-  display: inline-block;
-}
-#wrapper #main .switcher .sw-middle {
-  width: 10%;
-  float: left;
-}
-#wrapper #main .switcher .sw-middle ul {
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+#wrapper #main .pagination ul {
+  margin: 0 auto;
+  list-style: none;
   border: none;
+  padding: 0;
+  width: 105px;
 }
-#wrapper #main .switcher .sw-middle ul li {
-  margin: 0;
-  margin-left: 5%;
-}
-#wrapper #main .switcher .sw-middle ul li:first-child {
-  margin-left: 0;
-}
-#wrapper #main .switcher .sw-middle ul li a {
-  float: left;
-  height: 30px;
+#wrapper #main .pagination ul li {
   width: 30px;
+  height: 30px;
+  float: left;
+  margin-right: 5px;
+}
+#wrapper #main .pagination ul li a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #218cc8;
   color: white;
   text-align: center;
-  text-decoration: none;
-  background: #218cc8;
-  font-size: 20px;
 }
-#wrapper #main .switcher .sw-middle ul li a:after {
+#wrapper #main .pagination ul li a:after {
   content: "";
+  display: inline-block;
   height: 100%;
   vertical-align: middle;
-  display: inline-block;
 }
-#wrapper #main .switcher .sw-middle ul li .active-selector {
+#wrapper #main .pagination ul li a:hover {
   background: #125c87;
 }
-#wrapper #main .switcher .sw-right {
-  width: 45%;
-  float: left;
+#wrapper #main .pagination ul li .active {
+  background: #125c87;
 }
-#wrapper #main .switcher .sw-right a {
+#wrapper #main .pagination .prev,
+#wrapper #main .pagination .next {
+  float: left;
   display: block;
-  float: right;
+  background: #218cc8;
   height: 30px;
-  width: 90px;
+  text-decoration: none;
   color: white;
   text-align: center;
-  text-decoration: none;
-  background: #218cc8;
-  font-size: 20px;
+  width: 90px;
 }
-#wrapper #main .switcher .sw-right a:after {
+#wrapper #main .pagination .prev:after,
+#wrapper #main .pagination .next:after {
   content: "";
+  display: inline-block;
   height: 100%;
   vertical-align: middle;
-  display: inline-block;
+}
+#wrapper #main .pagination .next {
+  float: right;
 }
 #wrapper #main .about-main {
   overflow: hidden;
@@ -395,10 +389,14 @@ body {
   border: 5px solid;
   border-color: #dfedf5;
 }
+#wrapper #main .about-main .about-left ul:hover {
+  border-color: #218cc8;
+}
 #wrapper #main .about-main .about-left ul li {
   margin: 0;
   width: 50%;
   padding: 0;
+  float: left;
 }
 #wrapper #main .about-main .about-right {
   width: 35%;
@@ -440,6 +438,9 @@ body {
   height: 45%;
   background: #dfedf5;
 }
+#wrapper #main .about-main .about-right .a-holder:hover {
+  background: #218cc8;
+}
 #wrapper #main .about-main .about-right .a-holder:last-child {
   float: right;
 }
@@ -459,48 +460,57 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
 }
-#wrapper #main .contact-left form input {
+#wrapper #main .contact-left form fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+#wrapper #main .contact-left form fieldset input {
   background: #dfedf5;
   border: none;
   padding: 10px 0 10px 0;
 }
-#wrapper #main .contact-left form .first-name {
+#wrapper #main .contact-left form fieldset .first-name {
   width: 49%;
   float: left;
 }
-#wrapper #main .contact-left form .first-name input {
+#wrapper #main .contact-left form fieldset .first-name input {
   width: 100%;
 }
-#wrapper #main .contact-left form .last-name {
+#wrapper #main .contact-left form fieldset .last-name {
   width: 49%;
   float: right;
 }
-#wrapper #main .contact-left form .last-name input {
+#wrapper #main .contact-left form fieldset .last-name input {
   width: 100%;
 }
-#wrapper #main .contact-left form .email {
+#wrapper #main .contact-left form fieldset .email {
   width: 100%;
 }
-#wrapper #main .contact-left form .email input {
+#wrapper #main .contact-left form fieldset .email input {
   width: 100%;
 }
-#wrapper #main .contact-left form .message {
+#wrapper #main .contact-left form fieldset .message {
   width: 100%;
 }
-#wrapper #main .contact-left form .message textarea {
+#wrapper #main .contact-left form fieldset .message textarea {
   border: none;
   background: #dfedf5;
   width: 100%;
   height: 300px;
   padding: 10px 0 10px 0;
 }
-#wrapper #main .contact-left form .submit {
+#wrapper #main .contact-left form fieldset .submit {
   padding: 10px;
   background: #c5debb;
   color: #637f51;
   border: 1px solid;
   border-color: #637f51;
   float: right;
+}
+#wrapper #main .contact-left form fieldset .submit:hover {
+  color: black;
+  box-shadow: 0 0 5px black;
 }
 #wrapper footer {
   overflow: hidden;
@@ -527,8 +537,6 @@ body {
   display: block;
   height: 100%;
   width: 100%;
-  border-right: 1px solid;
-  padding: 0 0 0 5px;
 }
 #wrapper footer ul li a:hover {
   color: #125c87;

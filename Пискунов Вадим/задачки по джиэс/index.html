@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS - tasks</title>
+</head>
+<body>
+	<div id="wrapper">
+		<p>1.Написать функцию, которая возвращает содержимое массива наоборот.</p><br>
+		<strong>
+			<pre>
+				var x=[1,2,3,4,5,6];
+				function reverse () {
+					var y=x.reverse()
+					return y;
+				}
+			</pre>
+		</strong>
+
+<p>2.Написать функцию, которая находит в массиве значения, повторяющиеся два и более раз, и возвращает их.</p><br>
+	<strong>
+		<pre>
+		var x=[11,12,13,55,0,3,11,55,0,11];
+		var y=[];
+		function repeat () {
+			for (var i=0; i < x.length; i++) {
+				for (var j=0; j < x.length; j++) {
+					if ( (x[i]==x[j])&&(i!==j) ) {
+						y.push(x[i]);
+						break;
+					}
+				}
+			}
+			y.sort();
+			for (q=0; q < y.length; q++) {
+				for (w=q+1; w < y.length; w++) {
+					if (y[q]==y[w]) {
+						y.splice (q,1);
+						q=0;
+						w=1;
+						break;
+					}
+				}
+			}
+			return y;
+		}
+		</pre>
+	</strong>
+<p>3.	Написать функцию, которая находит в массиве самое маленькое нечетное число и возвращает его. </p><br>
+	<strong>
+		<pre>
+			var x=[144,17,4,5,6,7,8,9];
+			var m=x[0];
+			function min () {
+				for (var i=0; i < x.length; i++) {
+					if (x[i]%2 == 1) {
+						if (m > x[i]) {
+							m=x[i];
+						}
+					}
+				}
+				return m;
+			}
+		</pre>
+	</strong>
+
+<p>4.	Написать функцию для поиска среднего арифметического значений массива. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,5,6,7,8];
+		var sa=0;
+		function srar () {
+			for (var i=0; i < x.length; i++) {
+				sa=sa+x[i];
+			}
+			sa=sa/x.length;
+			return sa;
+		}
+	</pre>
+</strong>
+
+<p>5.	Задан одномерный массив чисел. Напишите сценарий, который определяет число положительных элементов массива. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,-3,4,-5,-6,7,8];
+		var pol=0;
+		function pos () {
+			for (var i=0; i < x.length; i++) {
+				if (x[i]>0) {
+					pol=pol+1;
+				}
+			}
+			return pol;
+		}
+	</pre>
+</strong>
+<p>6.	Задан одномерный массив чисел. Напишите сценарий, который определяет число отрицательных элементов. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,-3,4,-5,-6,7,8];
+		var neg=0;
+		function negative () {
+			for (var i=0; i < x.length; i++) {
+				if (x[i]<0) {
+					neg=neg+1;
+				}
+			}
+			return neg;
+		}
+	</pre>
+</strong>
+<p>7.	Задан одномерный массив целых чисел. Напишите сценарий, который определяет число минимальных элементов. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,5,1,2];
+		var a=x[0];
+		var res=0;
+		for (var i=0; i < x.length; i++) {
+			if (x[i] < a) {
+				a=x[i];
+			}
+		}
+		for (var j=0; j < x.length; j++) {
+			if (x[j]==a) {
+				res=res+1;
+			}
+		}
+		document.write(res);
+	</pre>
+</strong>
+<p>8.	Задан одномерный массив целых чисел. Напишите сценарий, который определяет число элементов, кратных 7. </p><br>
+<strong>
+	<pre>
+		var x=[1,5,6,7,14,21,28,64];
+		var y=0;
+		for (var i=0; i < x.length; i++) {
+			if (x[i]%7==0) {
+				y=y+1;
+			}
+		}
+		document.write(y);
+	</pre>
+</strong>
+<p>9.	Задан одномерный массив целых чисел. Напишите функцию, которая возвращает номер последнего минимального значения. </p><br>
+<strong>
+	<pre>
+		"последнее минимальное значение"?
+		var x=[15,6,7,14,5,21,28,64];
+		var y=x[0];
+		for (var i=0; i < x.length; i++) {
+			if (x[i] < y) {
+				y=x[i];
+			}
+		}
+		document.write (x.indexOf(y));
+	</pre>
+</strong>
+<p>10.	Напишите функцию, который определяет номер первого максимального значения в одномерном массиве целых чисел. </p><br>
+<strong>
+	<pre>
+		var x=[15,6,7,14,5,21,28,64];
+		var y=x[0];
+		for (var i=0; i < x.length; i++) {
+			if (x[i] > y) {
+				y=x[i];
+			}
+		}
+		document.write (x.indexOf(y));
+	</pre>
+</strong>
+<p>11.	Напишите сценарий, при работе которого определяется число элементов одномерного массива, совпадающих с заданным массивом. </p><br>
+<strong>
+	<pre>
+		var x=[15,6,7,14,5,21,28,64];
+		var y=[6,15,7,64,1];
+		var a=0;
+		for (var i=0; i < x.length; i++) {
+			for (var j=0; j < y.length; j++) {
+				if (x[i] == y[j]) {
+					a=a+1;
+				}
+			}
+		}
+		document.write (a);
+	</pre>
+</strong>
+<p>12.	Напишите функцию, при работе которой определяется, есть ли в массиве элементы, значения которых совпадают. </p><br>
+<strong>
+	<pre>
+		var x=[15,6,7,14,5,21,28,64];
+		var a=false;
+		for (var i=0; i < x.length; i++) {
+			for (var j=i+1; j < x.length; j++) {
+				if (x[i] == x[j]) {
+					a=true;
+				}
+			}
+		}
+		document.write (a);
+	</pre>
+</strong>
+<p>13.	Напишите функцию, определяющую все ли элементы массива различны. </p><br>
+<strong>
+	<pre>
+		var x=[15,6,7,14,5,21,28,64];
+		var a=true;
+		for (var i=0; i < x.length; i++) {
+			for (var j=i+1; j < x.length; j++) {
+				if (x[i] == x[j]) {
+					a=false;
+				}
+			}
+		}
+		document.write (a);
+	</pre>
+</strong>
+<p>14.	Напишите сценарий, определяющий максимальную по длине неубывающую последовательность. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,3,2,1,2,3,4,5,6];
+		var nowCheck=1;
+		var largestMass=0;
+		for (var i=0; i < x.length; i++) {
+			for (var j=i+1; j < x.length; j++) {
+				if (x[i] < x[j]) {
+					nowCheck=nowCheck+1;
+				}
+				else {break;}
+			}
+			if (nowCheck>largestMass) {
+				largestMass=nowCheck;
+				nowCheck=1;
+			}
+			else {nowCheck=1;}
+		}
+		document.write (largestMass);
+	</pre>
+</strong>
+<p>15.	Напишите сценарий, который объединяет два упорядоченных массива таким образом, что в результирующем массиве все элементы различны. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,3,2,1,2,3,4,5,6];
+		var z=[9,1,3,2,3,4,5,6,7,8,9];
+		var y=[];
+		x.sort();
+		z.sort();
+		for (var i=0; i < x.length; i++) {
+			if (x[i]-x[i-1]!==0) {
+				y.push(x[i]);
+			}
+		}
+		y.sort();
+		for (var j=0; j < z.length; j++) {
+			if (z[j]-z[j-1]!==0) {
+				for (var q=0; q < y.length; q++) {
+					if (z[j]!=y[q]) {
+						y.push(z[j]);
+						break;
+					}
+				}
+			}
+		}
+		y.sort();
+		for (var w=0; w < y.length; w++) {
+			if (y[w]-y[w+1]==0) {
+				y.splice(w,1);
+			}
+		}
+		document.write (y);
+	</pre>
+</strong>
+<p>16.	Напишите сценарий, который по двум массивам строит третий, являющийся пересечением заданных. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,5,6,1,2];
+		var y=[4,5,6,7,8,9,4,4];
+		var z=[];
+		function W () {
+			for (var i=0; i < x.length; i++) {
+				for (var j=0; j < y.length; j++) {
+					if (x[i] == y[j]) {
+						z.push(x[i]);
+						break;
+					}
+				}
+			}
+			z.sort();
+			for (var q=0; q < z.length; q++) {
+				for (var w=0; w < w.length; w++) {
+					if ( (z[q] == z[w]) && (w !== q) ) {
+						z.splice (q,1);
+						q=0;
+						w=0;
+					}
+				}
+			}
+			return z;
+		}
+	</pre>
+</strong>
+<p>17.	Напишите функцию, которая определяет, сколько различных чисел в заданном массиве. </p><br>
+<strong>
+	<pre>
+		var x=[7,9,8,1,2,3,4,100,5,6,1,2,3,6,5,4,7,8,9,110,1,120,130,1];
+		function E () {
+			x.sort();
+			console.log(x);
+			for (var i=0; i < x.length; i++) {
+				for (var j=i+1; j < x.length; j++) {
+					if (x[i]==x[j]) {
+						x.splice(i,1);
+						i=0;
+						j=i+1;
+						break;
+					}
+				}
+			}
+			return (x.length-1);
+		}
+	</pre>
+</strong>
+
+<p>18.	Напишите функцию, которая для заданного массива целых чисел определяет длину К самой длинной "пилообразной" 
+последовательности идущих подряд чисел: Последовательность a1, a2, a3, … , an­1, an называется пилообразной, 
+если она удовлетворяет одному из следующих условий:
+
+1) a1 < a2 > a3 < … > an­1 < an 2) a1 > a2 < a3 > … < an­1 > an </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,2,3,2,3,2,3,2,3,4,5,6,7,6,7,6,8,9];
+		var count=0;
+		var res=0;
+		var res1=0;
+		var res2=0;
+		function o0o () {
+			for (var i=1; i <= x.length-1; i+=2) {
+				if ( (x[i-1]<x[i]) && (x[i]>x[i+1]) ) {
+					count+=1;
+				}
+				else {
+					res1 = Math.max (res1, count);
+					count = 0;
+				}
+			}
+			for (var i=2; i <= x.length-1; i+=2) {
+				if ( (x[i-1]<x[i]) && (x[i]>x[i+1]) ) {
+					count+=1;
+				}
+				else {
+					res2 = Math.max (res2, count);
+					count = 0;
+				}
+			}
+			res = Math.max (res1, res2);
+			return (res*2+1);
+		}
+	</pre>
+</strong>
+<p>19.	Напишите функцию, который для заданных двух массивов X из пэлементов и У из k элементов определяет, существуют ли одинаковые подряд идущие элементы. </p><br>
+<strong>
+	<pre>
+		var x=[1,2,3,4,5,6,7,8,9,1,3];
+		var y=[1];
+		var z=0;
+		function QW () {
+			for (var i=0; i < x.length; i++) {
+				for (j=i+1; j < y.length; j++) {
+					if (x[i]==y[j]) {
+						z++;
+						if (x[i+1]==y[j+1]) {
+							z++;
+						}
+						else {
+							z=0;
+						}
+						if (z=2) {
+							alert ("exist");
+						}
+					}
+				}
+			}
+			return z;
+		}
+	</pre>
+</strong>
+<p>22.	Дан массив чисел размерностью 10 элементов. Написать функцию, которая сортирует массив по возрастанию или по убыванию, в зависимости от третьего параметра функции. Если он равен 1, сортировка идет по убыванию, если 0, то по возрастанию. Первые 2 параметра функции ­ это массив и его размер, третий параметр по умолчанию равен 1. </p><br>
+<strong>
+	<pre>
+		function array (x, y, c) {
+			var x=[1,3,2,4,5,6,7,9,8,10];
+			var y=x.length;
+			var c;
+			function sortMinMax(a, b) {
+				if (a > b) return 1;
+				if (a < b) return -1;
+			}
+			x.sort(sortMinMax);
+			if (c==0) {
+				return x.reverse();
+			}
+			if (c==1) {
+				return x;
+			}
+			}
+
+	</pre>
+</strong>
+<p>23.Дан массив случайных чисел в диапазоне от ­20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними.</p><br>
+<strong>
+	<pre>
+		function sortMinMax(a, b) {
+			if (a > b) return 1;
+			if (a < b) return -1;
+		}
+		var firstNeg;
+		var lastNeg;
+		function rand(val, min, max, length) {
+			var obj = {}, arr = [val];
+			obj[val] = true;
+			length--;
+			while (length) {
+            var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+            if (!obj[rnd]) {
+                obj[rnd] = true;
+                length--;
+                arr[Math.random() > .5 ? 'push' : 'unshift'](rnd)
+            };
+        }
+		return arr;
+		}
+		var quest = rand(1,-20,20,15);
+		for (var i=0; i < quest.length; i++) {
+			if (quest[i]<0) {
+				firstNeg=i;
+				break;
+			}
+		}
+		for (var j=0; j < quest.length; j++) {
+			if (quest[j]<0) {
+				lastNeg=j;
+			}
+		}
+		var leftPart=[];
+		var rightPart=[];
+		for (var leftMas=0; leftMas <= firstNeg; leftMas++) {
+			leftPart.push(quest[leftMas]);
+		}
+		for (var rightMas=lastNeg; rightMas < quest.length; rightMas++) {
+			rightPart.push(quest[rightMas]);
+		}
+		quest.splice(lastNeg,15);
+		quest.splice(0,(firstNeg+1));
+		quest.sort(sortMinMax);
+		var arr=[];
+		for (var Aaa=0; Aaa < leftPart.length; Aaa++) {
+			arr.push(leftPart[Aaa]);
+		}
+		for (var aAa=0; aAa < quest.length; aAa++) {
+			arr.push(quest[aAa]);
+		}
+		for (var aaA=0; aaA < rightPart.length; aaA++) {
+			arr.push(rightPart[aaA]);
+		}
+		arr;
+	</pre>
+</strong>
+24.Дан массив из 20 целых чисел со значениями от 1 до 20. Необходимо:
+
+○	написать функцию, разбрасывающую элементы массива произвольным образом; 
+○	создать случайное число из того же диапазона и найти позицию этого случайного числа в массиве; 
+○	отсортировать элементы массива, находящиеся слева от найденной позиции по убыванию, а элементы массива, находящиеся справа от найденной позиции по возрастанию
+<strong>
+	<pre>
+		НЕ СДЕЛАЛЬ
+		var arr=[];
+		function rand(val, min, max, length) {
+			var obj = {}, arr = [val];
+			obj[val] = true;
+			length--;
+			while (length) {
+            var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+            if (!obj[rnd]) {
+                obj[rnd] = true;
+                length--;
+                arr[Math.random() > .5 ? 'push' : 'unshift'](rnd)
+            };
+        }
+		return arr;
+		}
+		rand(1,1,20,20);
+		var y=[];
+		function randIndex(val, min, max, length) {
+			var obj = {}, index = [val];
+			obj[val] = true;
+			length--;
+			while (length) {
+            var rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+            if (!obj[rnd]) {
+                obj[rnd] = true;
+                length--;
+                index[Math.random() > .5 ? 'push' : 'unshift'](rnd)
+            };
+        }
+		return index;
+		}
+		randIndex(1,1,20,20);
+
+		var arr=rand(1,1,20,20);
+		var index=randIndex(1,1,20,20);
+		function raskid () {
+			for (var i=0; i < arr.length; i++) {
+				for (var j=i; j < index.length; j++) {
+					indexOf(arr[i])=j;
+					break;
+				}
+			}
+			return y;
+		}
+		raskid ();
+	</pre>
+</strong>
+	</div>
+</body>
+</html>
