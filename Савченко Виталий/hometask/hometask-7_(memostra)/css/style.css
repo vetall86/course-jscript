@@ -1,0 +1,446 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700&subset=latin,cyrillic);
+*{
+	text-decoration:none;
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+}
+html,body {
+	font: 11px Arial, Helvetica, sans-serif;
+}
+/*home*/
+.wrapper {
+	width: 960px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	background: #fff;
+	}
+	#header {
+		width: 100%;
+		padding: 30px 0;
+		overflow: hidden;
+		}
+		#header .logo {
+			float: left;
+			position: relative;
+			padding: 10px 0;
+			}			
+			#header .logo a{
+				font-family: 'Comfortaa';				
+				font-size:  63.13px;				
+				line-height:  27px;
+				font-weight: bold;
+				text-align:  left;
+				text-shadow:  1px 3px 0px rgba(0, 0, 0, 0.12);
+				color: #669b52;
+				}
+				#header .logo a span{color: #288dc8;}
+				#header .logo a img{
+					position: absolute;
+					top: -5px;
+					left: 152px;
+				}
+			#header div address {
+				font-family:  Arial;
+				color:  rgba(126, 105, 105, 0.580392);
+				font-size:  16.7px;
+				font-style:  italic;				
+				}
+				#header div address a {
+					color: #87ac75;
+					font-weight: bold;
+				}
+				#header div address a:hover{text-decoration: underline;}
+		#header div:last-child {
+			float: right;
+			text-align: right;
+		}
+	#main nav {
+		overflow: hidden;
+		padding: 0 0 10px;
+		margin: 0 0 10px;		
+
+		}
+		#main nav ul{			
+			font-size: 0;
+			background: #218cc8;
+			}
+			#main nav ul li{
+				display: inline-block;
+				position: relative;	
+				vertical-align: middle;						
+				}
+				#main nav ul li a {
+					color: #fff;
+					font-size: 20px;
+					font-weight: bold;					
+					padding: 13px 22px;
+					display: block;
+					}
+					#main nav ul li a:hover {
+						background: #135c87;
+					}
+					#main nav ul li a.active {
+						background: #135c87;
+					}
+					#main nav ul li a.active:before{
+						    content: '';
+							width: 8px;
+							height: 8px;
+							display: block;
+							position: absolute;
+							top: 45px;
+							background-color: #135c87;
+							left: 50%;
+							margin-left: -3px;
+							-ms-transform: rotate(45deg); /* IE 9 */
+							-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+							transform: rotate(45deg);
+						}
+				#main nav ul li ul{
+					padding: 13px 13px 13px 19px;
+				}		
+				#main nav ul li ul li a {
+					padding: 0;
+					font-size: 0;				
+					}
+					#main nav ul li ul li a:hover {
+						background: none;
+					}
+				#main nav ul li ul li:first-child {
+					margin: 0 8px 0 0;
+				}	
+	#main .banner-holder {		
+		width: 100%;		
+		text-align: right;
+		box-sizing: border-box;		
+		margin: 0 0 20px;
+		position: relative;
+		}
+		#main .banner-holder>div{
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+		#main .banner-holder h1 {
+			color: #5290b4;
+			font-size: 35.54px;
+		}
+		#main .banner-holder h2 {
+			color: #87abbf;
+			margin: 0 0 35px;
+		}
+		#main .banner-holder div div {			
+			float: right;			
+			width: 145px;
+			height: 38px;
+			text-align: center;
+			}
+			#main .banner-holder div a {
+				padding: 10px 0;
+				display: block;
+				color: #fff;
+				font-size: 16px;
+				font-weight: bold;	
+				background: #f28221;			
+			}
+			#main .banner-holder div a:hover {
+				background: #c85605;
+			}
+	#main menu {
+		overflow: hidden;
+		padding: 0 0 20px;
+		border-bottom: 1px dotted #b1c7de;	
+		}
+		#main menu ul {
+			float: left;
+			font-size: 0;
+			}
+			#main menu ul li {
+				display: inline-block;				
+				}
+				#main menu ul li a{
+					font-size: 16px;
+					font-weight: bold;
+					padding: 10px;
+					background: #ededed;
+					border-color: #dedddd;
+					color: #a2a2a2;
+					display: block;
+					margin: 0 5px 0 0;
+				}
+				#main menu ul li a.active,
+				#main menu ul li a:hover {
+					color: #136392;
+					background: #dfecf5;
+					border-color: #c6e2f3;
+				}
+		#main menu form {
+			float: right;					
+			}			
+			#main menu form input[type="text"] {
+				font: 12px verdana;
+				width: 238px;
+				height: 38px;
+				box-sizing: border-box;
+				border: 1px solid #c5debc;
+				box-shadow: inset 0px 0px 0px 3px #c5debb;
+				padding: 12px;
+				float: left;
+				margin: 0 5px 0 0;
+			}
+			#main menu form input[type="submit"],
+			#main section form input[type="submit"] {
+				font:bold 16px/19px Arial, Helvetica, sans-serif;
+				color: #637f51;
+				height: 38px;
+				width: 80px;
+				box-sizing: border-box;
+				background: #c5debc;
+				border: 1px solid #a5c796;
+			}
+			#main menu form input[type="submit"]:hover,
+			#main section form input[type="submit"]:hover {
+				background: #a5c796;
+				text-decoration: underline;
+			}
+	#main section ul {
+		font-size: 0;
+		padding: 20px 0;
+		border-bottom: 1px dotted #b1c7de;	;
+		}
+		#main section ul li {
+			display: inline-block;				
+			}
+		#main section ul li + li {
+			margin: 0 0 0 15px;
+		}		
+		#main section ul li article {
+			font-size: 18px;
+			}
+			#main section ul li article p{
+				color: #136392;
+				font-weight: bold;
+				padding: 0 0 5px;
+				}
+				#main section ul li article div p {
+					color: #454545;
+					padding: 5px 0 0;
+				}
+				#main section ul li article div p:first-child {
+					float: left;
+				}
+				#main section ul li article div p:first-child span {
+					color: #4c9141
+				}
+				#main section ul li article div p:last-child {
+					float: right;
+				}
+				#main section ul li article div p:last-child span {
+					color: #676767;
+				}
+			#main section ul li .label {
+				width: 290px;
+				height: 290px;
+				padding: 9px;
+				background: #dfedf5;
+				border: 1px solid #c5e2f2;
+				overflow: hidden;
+				}
+				#main section ul li .label img {
+					width: 100%;
+					height: 100%;
+				}
+	#main .gallery-holder {
+		padding: 10px 0;			
+		}
+		#main .gallery-holder>div {
+			background: #dfedf5;
+			border: 1px solid #c5e2f2;
+			padding: 10px;
+			overflow: hidden;
+			}
+			#main .gallery-holder div a {
+				font: bold 20px Arial;
+				color: #fff;
+				}
+				#main .gallery-holder div div a:hover{
+					background: #a5bfcf;
+				}
+			#main .gallery-holder div .prev-box {				
+				float: left;				
+				background: #a5bfcf;
+				margin: 0 268px 0 0;
+				}
+				#main .gallery-holder div .prev-box a{									
+					padding: 0 15px;
+					line-height: 50px;					
+					display: block;
+
+				}
+			#main .gallery-holder div ul {				
+				float: left;
+				font-size: 0;
+				}
+				#main .gallery-holder div ul li {
+					display: inline-block;					
+					background: #218cc8;
+					font-size: 20px;
+					font-weight: bold;
+					color: #fff;
+					text-align: center;
+				}
+				#main .gallery-holder div ul li + li {
+					margin: 0 0 0 5px;
+				}
+				#main .gallery-holder div ul li a{
+					line-height: 50px;
+					width: 47px;
+					display: block;
+				}
+				#main .gallery-holder div ul li a.active,
+				#main .gallery-holder div ul li a:hover {
+					background: #125c86;
+				}
+
+			#main .gallery-holder div .next-box{
+				float: right;				
+				text-align: right;
+				background: #218dc8;
+				}
+				#main .gallery-holder div .next-box a{
+					line-height: 50px;
+					padding: 0 15px;					
+					display: block;
+				}
+	#footer {
+		overflow: hidden;
+		color: #50868a;
+		font: 11px/18px Verdana, Verdana, Geneva, sans-serif;
+		padding: 20px 0;
+		border-top: 1px dotted #b1c7de;
+		}
+		#footer p {
+			float: left;		
+			}
+			#footer p a{
+				color: #1f565b;
+			}
+		#footer ul {
+			float: right;
+			}
+			#footer ul li {
+				display: inline-block;
+				padding: 0 5px;
+			}
+			#footer ul li + li {
+				border-left: 1px solid #50868a;
+				}
+				#footer ul li a{
+					color: #50868a;
+				}
+				#footer a:hover{
+					text-decoration: underline;
+				}
+/*about Us*/
+#main menu h1 {
+	float: left;
+	font-size: 35px;
+	color: #5390b4;
+}
+#main section {
+	overflow: hidden;
+}
+	#main section .content {
+		float: left;
+		width: 596px;
+		}
+		#main section .content p {
+			font: 12px/17px Verdana, Verdana, Geneva, sans-serif;
+			color: #2c2c2c;
+			padding: 25px 0;
+		}
+		#main section .content .holder {
+			padding: 9px;
+			background: #dfedf5;
+			border: 1px solid #c5e2f2;
+			font-size: 0;
+		}
+	#main section aside {
+		float: right;
+		width: 323px;		
+		}
+		#main section aside h2 {
+			padding: 20px 0;
+			font-family: Arial;
+			color:  #136391;
+			font-size: 22px;
+			font-weight: bold;
+			line-height: 27px;
+		}
+		#main section aside article ul {
+			border-bottom: none;
+			padding: 0;
+		}
+			#main section aside article:first-child ul li + li {					
+				margin: 5px 0 0;
+				}
+				#main section aside article:first-child ul li a{
+					font: 12px/27px Verdana, Verdana, Geneva, sans-serif;
+					color: #47677a;
+					width: 323px;
+					height: 38px;
+					padding: 5px 0 6px 5px;
+					box-sizing: border-box;
+					border: 1px solid #c5e2f2;
+					background: #dfedf5;
+					display: block;
+					vertical-align: middle;
+					}
+					#main section aside article:first-child ul li a:hover {
+						text-decoration: underline;
+						background: #a5bfcf;
+					}
+			#main section aside article:last-child ul li {
+				padding: 9px;
+				background: #dfedf5;
+				border: 1px solid #c5e2f2;
+			}
+/*contact*/
+#main section form {
+	overflow: hidden;
+	margin: 0 0 45px;
+	}
+	#main section form .row div {
+		float: left;
+		width: 291px;
+
+		}
+		#main section form .row div:last-child {
+			float: right;		
+		}
+		#main section form .row div input,
+		#main section form .row input,
+		#main section form .row textarea {
+			width: 100%;
+			height: 38px;
+			margin: 0 0 15px;
+			background: #dfedf5;
+			box-sizing: border-box;
+			border: 1px solid #c5e2f2;
+		}
+		#main section form .row textarea {
+			height: 269px;
+		}
+			#main section form	.row div label,
+			#main section form	.row label {
+				font: bold 14px/17px Verdana, Verdana, Geneva, sans-serif;
+				color: #47677a;
+				display: block;
+				margin: 0 0 5px;
+			}
+		#main section form input[type="submit"] {
+			width: 140px;
+			height: 38px;
+			float: right;			
+		}
