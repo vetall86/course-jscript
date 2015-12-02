@@ -1,0 +1,64 @@
+сайт - соеденить между собой ссылки !!!
+
+двоешник!!! => title проверь =)
+
+logo - все класно (анимация повеселила заказчик не примет но идею мне нравиться)
+обертка параграф лишняя - убери
+
+additional_inform - явно лишний id  плюс text-shadow - это перебор
+br - тоже можно без него обойтись
+
+social_items - лишний id не то что б это критично прям но опять же можно без него
+position - тоже ненужен оюойдись другими стилями для позиционирования
+
+
+nav_item => и не нужно каждую лишку метить привязка дальше nav>ul>li - вполне сгодиться
+если уж nav больше одного на странице лучше его пометь id и  все так же nav#nav-id>ul>li
+
+href="#null" - я так понимаю ты где то вычитал - лучше просто # - что значит неопределенная но зарезервированая сылка
+
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+всю эту кучу в одно свойство
+тем более что у тебя и так body {font-family: Arial, Tahoma, Verdana, sans-serif;}
+
+
+main_header => main#main>header - зачем id ?
+
+menu>ul>li - вылазят за пределы родителя(ul)
+kategories - лучше на ul  тогда ul#kategories>li>a
+
+form - где обязательный атрибут формы ??? !!!!
+контент формы рекомендую заворачивать в fielset
+
+t-shirts - WTF ?
+картинку в заголовок .... убери пока никто не видел
+t-shirts - весь мне не нравиться если чесно - попробуй переделать
+
+в что то типа ul.goods>li>article{
+	header
+	.box-preview
+	.par {
+		strong{mark}
+		strong{mark}
+		}
+
+}
+
+pagination - ховеры уже что ли добавь =)
+
+back - next хотя лучше prev - next и это не id !!
+
+number_page => number-page опять же не id поиск селектора #pagination>ul.paging-list (див там явно лийшний)
+
+link_active => .active - и не ссылка а (li.active>a)
+
+footer_nav => все так же если больше одного футера на странице метиш footer#footer-id>ul
+
+a> border-right: 2px solid #568489 - рррр каккой еще бордер ? | - в JS побитовое или(символ такой)
+
+br - тоже можно без него обойтись
+тут  2 strong подойдет
+Copyright ©2010 Me Mostra или Me Mostra - тоже ссылка
+

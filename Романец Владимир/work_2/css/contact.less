@@ -1,0 +1,147 @@
+@content-width: 960px;
+.tshis_figure_size(@width: 290px, @height: 290px){
+	width: @width;
+	height: @height;
+}
+.overley_border_fill(@border: #c5e2f3, @fill: #deebf3){
+	border: 1px solid @border;
+	background: @fill;
+}
+nav ul li:nth-child(7) {
+  background: #125c87;
+  position: relative;
+}
+nav ul li:nth-child(7):after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 7px 0 7px;
+  border-color: #125c87 transparent transparent transparent;
+  position: absolute;
+  left: 42%;
+}
+aside.banner{
+	height: 101px;
+	background: url(../img/banner_small.jpg) no-repeat 100%;
+}
+article{
+	h2{
+		margin: 0 0 19px 0;
+		font-size: 35px;
+		color: #5290b4;
+	}
+	>div{
+		width: 596px;
+		text-align: justify;
+		margin-bottom: 20px;
+		p{
+			font-family: Verdana, Arial, Sans-serif;
+			font-size: 12px;
+			font-weight: normal;
+		}
+		form{
+			p{
+				float: left;
+				margin: 0 0 10px 0;
+				label{
+					line-height: 25px;
+					font-family: Verdana, Sans-serif;
+					font-size: 14px;
+					font-weight: bold;
+					color: #47677a;
+				}
+				input,
+				textarea{
+					.overley_border_fill;
+					font-size: 16px;
+				}
+			}
+			.firstname{
+				margin: 0 10px 0 0;
+			}
+			input[type="text"]{
+				.tshis_figure_size(291px, 38px);
+				box-sizing: border-box;
+				padding: 11px 12px;
+			}
+			input[type="email"]{
+				.tshis_figure_size(592px, 38px);
+				box-sizing: border-box;
+				padding: 11px 12px;
+			}
+			textarea{
+				.tshis_figure_size(592px, 269px);
+				box-sizing: border-box;
+				padding: 11px 12px;
+			}
+			.submit-btn{
+				float: right;
+				input{
+				.overley_border_fill(#a5c796, #c5debb);
+				padding: 9px 12px;
+				color: #637f51;
+				font-family: arial;
+				font-weight: bold;
+				font-size: 16px;
+				}
+			}
+			&:after{
+				content: "";
+				display: block;
+				clear: both;
+				visibility: hidden;
+				height: 0;
+			}
+		}
+	}
+	section{
+		float: right;
+		width: 325px;
+		h3{
+			margin: 0 0 15px 0;
+			font-size: 22px;
+			font-weight: normal;
+			color: #146492;
+		}
+		ul{
+			margin-bottom: 22px;
+			li{
+				display: block;
+				margin: 0 0 5px 0;
+				a{
+					.overley_border_fill;
+					box-sizing: border-box;
+					padding: 11px 10px;
+					width: 323px;
+					font-family: Verdana, sans-serif;
+					font-size: 12px;
+					font-weight: normal;
+					color: #47677a;
+					display: block;
+				}
+				:hover{
+					background: #c5e2f3;
+				}
+			}
+		}
+		>div{
+			float: left;
+			padding: 9px;
+			.overley_border_fill;
+			img{
+				vertical-align:bottom;
+				.tshis_figure_size(134px, 134px);
+			}
+		}
+		p{
+			float: right;
+			padding: 9px;
+			.overley_border_fill;
+			img{
+				vertical-align:bottom;
+				.tshis_figure_size(134px, 134px);
+			}
+		}
+	}
+}
